@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5JJL35HF1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W5JJL35HF1');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Belated Happy Birthday Anuja!</title>
+    <title>Belated Happy Birthday Neeraj Sharma 🎉</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
@@ -13,400 +22,350 @@
         }
 
         body {
-            background: #0f172a;
-            min-height: 100vh;
+            background: linear-gradient(135deg, #0d0221, #190a38, #2a085c);
+            color: #fff;
             display: flex;
             flex-direction: column;
+            align-items: center;    
             justify-content: center;
-            align-items: center;
+            min-height: 100vh;
             padding: 20px;
-            color: #1e293b;
-        }
-
-        .controls {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
-            color: #ffffff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 14px;
-            font-weight: 700;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(225, 29, 72, 0.6);
-        }
-
-        .btn:disabled {
-            background: #334155;
-            box-shadow: none;
-            cursor: not-allowed;
-            opacity: 0.5;
-            transform: none;
-        }
-
-        .page-indicator {
-            font-size: 14px;
-            color: #cbd5e1;
-            font-weight: 600;
-            background: rgba(255,255,255,0.08);
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .book-container {
-            width: 420px;
-            height: 580px;
+            overflow-x: hidden;
             position: relative;
-            perspective: 1500px;
         }
 
-        .card-page {
-            width: 100%;
-            height: 100%;
-            position: absolute;
+        /* Animated Floating Emojis */
+        .bg-animated-container {
+            position: fixed;
             top: 0;
             left: 0;
-            transform-origin: left center;
-            transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            cursor: pointer;
-        }
-
-        .page-face {
-            position: absolute;
             width: 100%;
             height: 100%;
-            backface-visibility: hidden;
-            border-radius: 16px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            pointer-events: none;
+            z-index: 1;
             overflow: hidden;
         }
 
-        .page-back {
-            transform: rotateY(180deg);
-        }
-
-        .card-page.flipped {
-            transform: rotateY(-180deg);
-        }
-
-        /* LIGHT BACKGROUNDS */
-        .bg-p1-light {
-            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 50%, #fecdd3 100%);
-            border: 2px solid #fda4af;
-        }
-
-        .bg-p2-3 {
-            background: #fffdfa;
-            background-image: 
-                radial-gradient(#cbd5e1 1.2px, transparent 1.2px),
-                radial-gradient(#cbd5e1 1.2px, #fffdfa 1.2px);
-            background-size: 24px 24px;
-            background-position: 0 0, 12px 12px;
-            color: #0f172a;
-            border: 1px solid #e2e8f0;
-        }
-
-        .bg-p4-light {
-            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 50%, #fef08a 100%);
-            border: 2px solid #fde047;
-            color: #1e293b;
-        }
-
-        .inner-border {
-            border: 2px dashed #f43f5e;
-            height: 100%;
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.4);
-        }
-
-        .light-amber-border {
-            border: 2px dashed #d97706;
-            height: 100%;
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .deco-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-left: 4px solid #fb7185;
-            padding: 14px;
-            border-radius: 8px;
-            margin: 12px 0;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            text-align: left;
-        }
-
-        .tag-badge {
-            display: inline-block;
-            background: #ffe4e6;
-            color: #be123c;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        h1 { font-size: 25px; line-height: 1.3; font-weight: 800; color: #881337; }
-        h2 { font-size: 19px; color: #0f172a; margin-bottom: 6px; font-weight: 700; }
-        p { font-size: 13.5px; line-height: 1.6; color: #334155; margin-bottom: 10px; }
-
-        .name-title {
-            color: #e11d48;
-            font-weight: 800;
+        .bg-item {
+            position: absolute;
+            bottom: -50px;
             font-size: 28px;
-            display: block;
-            margin-top: 4px;
+            opacity: 0.75;
+            animation: floatUp 8s infinite linear;
         }
 
-        .page-num {
-            font-size: 11px;
-            font-weight: bold;
-            color: #94a3b8;
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
-        .signature-area {
-            margin-top: 15px;
-            border-top: 1px solid #cbd5e1;
-            padding-top: 10px;
+        /* Card Section */
+        .card-container {
+            width: 100%;
+            max-width: 440px;
+            z-index: 2;
+            perspective: 1000px;
+        }
+
+        .greeting-card {
+            background: rgba(22, 22, 35, 0.95);
+            border: 2px solid #ff4757;
+            border-radius: 20px;
+            padding: 28px 22px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 71, 87, 0.4), 0 0 15px rgba(46, 213, 115, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .belated-tag {
+            display: inline-block;
+            background: #ffa502;
+            color: #1a1a2e;
+            font-weight: 800;
+            font-size: 13px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 10px rgba(255, 165, 2, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1.name-title {
+            color: #ff4757;
+            font-size: 26px;
+            margin-bottom: 6px;
+            text-shadow: 0 0 12px rgba(255, 71, 87, 0.6);
+        }
+
+        h2.wish-title {
+            color: #2ed573;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Special Quote Box */
+        .message-box {
+            background: rgba(15, 52, 96, 0.7);
+            border-left: 4px solid #00d2d3;
+            border-radius: 10px;
+            padding: 16px;
+            margin: 15px 0;
             text-align: left;
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .message-box p {
+            color: #f1f2f6;
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .singing-request-box {
+            background: rgba(255, 71, 87, 0.15);
+            border: 1px dashed #ff4757;
+            border-radius: 10px;
+            padding: 14px;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .singing-request-box p {
+            color: #ffda79;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* Action Buttons */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 71, 87, 0.5);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(255, 71, 87, 0.8);
+        }
+
+        .action-btn:active {
+            transform: scale(0.96);
+        }
+
+        .action-btn.secondary {
+            background: linear-gradient(135deg, #1e90ff, #70a1ff);
+            box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+        }
+
+        /* Unbox Surprise Gift Animation Box */
+        .gift-box {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 10px auto;
+            cursor: pointer;
+            font-size: 55px;
+            transition: transform 0.3s ease;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .footer-note {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #a4b0be;
         }
     </style>
 </head>
 <body>
 
-    <div class="controls">
-        <button class="btn" id="prevBtn" onclick="prevPage()" disabled>&larr; Previous</button>
-        <span class="page-indicator" id="pageIndicator">Page 1 of 4</span>
-        <button class="btn" id="nextBtn" onclick="nextPage()">Next &rarr;</button>
+    <!-- Floating Background Animation -->
+    <div class="bg-animated-container">
+        <div class="bg-item" style="left: 5%; animation-duration: 7s;">🎈</div>
+        <div class="bg-item" style="left: 20%; animation-duration: 9s; animation-delay: 1s;">🎂</div>
+        <div class="bg-item" style="left: 38%; animation-duration: 6s; animation-delay: 2s;">🎤</div>
+        <div class="bg-item" style="left: 55%; animation-duration: 8s; animation-delay: 0.5s;">🎉</div>
+        <div class="bg-item" style="left: 75%; animation-duration: 10s; animation-delay: 2.5s;">🎁</div>
+        <div class="bg-item" style="left: 90%; animation-duration: 7s; animation-delay: 1.5s;">⭐</div>
     </div>
 
-    <div class="book-container">
-        
-        <!-- SHEET 1 -->
-        <div class="card-page" id="sheet1" style="z-index: 2;" onclick="nextPage()">
+    <!-- Main Card Container -->
+    <div class="card-container">
+        <div class="greeting-card">
             
-            <!-- PAGE 1: FRONT COVER (BELATED) -->
-            <div class="page-face bg-p1-light">
-                <div class="inner-border">
-                    <div style="font-size: 42px; margin-top: 10px;">⏳🌸🎂</div>
-                    
-                    <div>
-                        <span style="letter-spacing: 2px; font-size: 11px; color: #9f1239; text-transform: uppercase; font-weight: 700; background: rgba(255,255,255,0.6); padding: 3px 8px; border-radius: 10px;">Better Late Than Never!</span>
-                        <h1 style="margin: 10px 0;">Belated Happy<br>Birthday!</h1>
-                        
-                        <div style="background: #ffffff; padding: 10px 20px; border-radius: 20px; display: inline-block; margin-top: 5px; box-shadow: 0 4px 10px rgba(225,29,72,0.15);">
-                            <span class="name-title">Anuja 🎈</span>
-                        </div>
-                    </div>
-
-                    <div style="font-size: 12px; color: #be123c; font-style: italic; font-weight: 600;">
-                        "Late wish, but full of heart and warm vibes!" ✨
-                    </div>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
-                    <span class="page-num" style="color: #9f1239;">COVER</span>
-                    <span class="page-num" style="color: #9f1239;">Page 1</span>
-                </div>
-            </div>
-
-            <!-- PAGE 2: AS A FRIEND -->
-            <div class="page-face page-back bg-p2-3">
-                <div>
-                    <span class="tag-badge">💛 Wishing As A Friend</span>
-                    
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                        <span style="font-size: 26px;">🥳</span>
-                        <h2>Belated Wishes, Anuja!</h2>
-                    </div>
-
-                    <p>Thoda late ho gaya, lekin feelings ekdam 100% genuine hain! May your year ahead be filled with laughter, fun moments, delicious cake, and zero stress!</p>
-
-                    <div class="deco-card">
-                        <strong style="color: #be123c; font-size: 12px; display: block; margin-bottom: 4px;">
-                            🤪 FRIENDSHIP REALITY CHECK
-                        </strong>
-                        <p style="font-size: 12.5px; margin-bottom: 0; font-style: italic; color: #1e293b;">
-                            "I didn't forget your birthday... I'm just helping you extend the birthday week celebration!" 😂☕
-                        </p>
-                    </div>
-
-                    <p style="font-size: 13px;">Hope this year brings you endless happiness, memorable trips, and everything your heart desires!</p>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                    <span class="page-num">Page 2</span>
-                    <span style="font-size: 16px;">🍕🎉</span>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- SHEET 2 -->
-        <div class="card-page" id="sheet2" style="z-index: 1;">
+            <div class="belated-tag">⏳ Belated Wishes</div>
             
-            <!-- PAGE 3: AS A COLLEAGUE -->
-            <div class="page-face bg-p2-3" onclick="nextPage()">
-                <div>
-                    <span class="tag-badge" style="background: #e0f2fe; color: #0369a1;">💼 Wishing As A Colleague</span>
-                    
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                        <span style="font-size: 26px;">📊</span>
-                        <h2>Workplace Star!</h2>
-                    </div>
+            <div class="gift-box" onclick="triggerConfetti()" title="Click for surprise!">🎁</div>
 
-                    <p>It’s an absolute pleasure working with you, Anuja. Your energy, dedication, and problem-solving skills make team projects so much easier!</p>
+            <h1 class="name-title">Neeraj Sharma</h1>
+            <h2 class="wish-title">Belated Happy Birthday! 🎉🥳</h2>
 
-                    <div class="deco-card" style="border-left-color: #0284c7; background: #f0f9ff;">
-                        <p style="font-size: 12.5px; color: #0369a1; margin: 0; font-weight: 600;">
-                            💬 Colleague Quote of the Year:<br>
-                            <em>"May your coffee be strong, your emails be brief, and your deadlines always be met ahead of time!"</em> ☕📈
-                        </p>
-                    </div>
-
-                    <p style="font-size: 13px;">Wishing you huge professional success, rapid career growth, and great achievements ahead!</p>
-
-                    <div class="signature-area">
-                        <p style="font-weight: 700; color: #0f172a; margin-bottom: 2px;">Warm wishes from all of us,</p>
-                        <p style="font-size: 12px; color: #64748b; margin: 0;">— Your Colleagues & Team 🤝</p>
-                    </div>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                    <span style="font-size: 16px;">✨</span>
-                    <span class="page-num">Page 3</span>
+            <div class="message-box">
+                <p>
+                    💡 <b>Aapke liye khaas dua:</b><br>
+                    <i>"Aap hamesha aise hi aage badhte rahein... Khud nayi-nayi cheezein seekhte rahein, aur hamesha doosron ko bhi seekhne mein madad karte rahein!"</i>
+                </p>
+                
+                <div class="singing-request-box">
+                    <p>🎤 <b>Chhoti Si Request:</b><br>
+                    Iss birthday celebration ke mauke par hum sabke liye ek pyara sa gana zaroor gaana! 🎶 Suna hai aapki aawaz mein alag hi baat hai! 😉✨</p>
                 </div>
             </div>
 
-            <!-- PAGE 4: LIGHT BACK COVER -->
-            <div class="page-face page-back bg-p4-light" onclick="prevPage()">
-                <div class="light-amber-border">
-                    <div style="font-size: 40px; margin-top: 10px;">⚡🎯🌟</div>
-
-                    <div>
-                        <span style="background: #fef3c7; color: #b45309; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">
-                            Future Goals
-                        </span>
-
-                        <h1 style="color: #b45309; font-size: 22px; margin: 12px 0 8px 0;">
-                            Keep Shining, Anuja!<br>Do Hard Work Like This
-                        </h1>
-                        
-                        <p style="color: #451a03; font-size: 13px; line-height: 1.6;">
-                            Keep rocking in your upcoming days and crush every single goal that comes your way! 👊
-                        </p>
-
-                        <div style="margin-top: 15px; background: #ffffff; border: 1.5px solid #f59e0b; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(217, 119, 6, 0.15);">
-                            <span style="font-size: 15px; font-weight: bold; color: #b45309;">
-                                BEST OF LUCK! 💪🚀🌟
-                            </span>
-                        </div>
-                    </div>
-
-                    <div style="font-size: 11px; color: #b45309; letter-spacing: 1px; font-weight: 600; text-transform: uppercase;">
-                        Cheering For Your Success 🎯
-                    </div>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
-                    <span class="page-num" style="color: #b45309;">Page 4</span>
-                    <span class="page-num" style="color: #b45309;">BACK COVER</span>
-                </div>
+            <div class="btn-group">
+                <button class="action-btn" onclick="triggerConfetti()">
+                    🎉 Celebrate & Blast Confetti
+                </button>
+                <button class="action-btn secondary" id="musicBtn" onclick="playFullBirthdaySong()">
+                    🎵 Play Full Birthday Song (Fast Tempo)
+                </button>
             </div>
 
+            <p class="footer-note">Late sahi, par wishes dil se hain! ❤️</p>
         </div>
-
     </div>
 
     <script>
-        let currentSpread = 1;
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                triggerConfetti();
+            }, 500);
+        });
 
-        const sheet1 = document.getElementById('sheet1');
-        const sheet2 = document.getElementById('sheet2');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const pageIndicator = document.getElementById('pageIndicator');
+        // Confetti Blast Function
+        function triggerConfetti() {
+            var count = 200;
+            var defaults = { origin: { y: 0.7 } };
 
-        function updateBookState() {
-            if (currentSpread === 1) {
-                sheet1.classList.remove('flipped');
-                sheet2.classList.remove('flipped');
-                sheet1.style.zIndex = 2;
-                sheet2.style.zIndex = 1;
-                
-                prevBtn.disabled = true;
-                nextBtn.disabled = false;
-                pageIndicator.innerText = "Page 1 of 4";
-            } 
-            else if (currentSpread === 2) {
-                sheet1.classList.add('flipped');
-                sheet2.classList.remove('flipped');
-                sheet1.style.zIndex = 1;
-                sheet2.style.zIndex = 2;
-                
-                prevBtn.disabled = false;
-                nextBtn.disabled = false;
-                pageIndicator.innerText = "Pages 2 & 3 of 4";
-            } 
-            else if (currentSpread === 3) {
-                sheet1.classList.add('flipped');
-                sheet2.classList.add('flipped');
-                sheet1.style.zIndex = 1;
-                sheet2.style.zIndex = 2;
-                
-                prevBtn.disabled = false;
-                nextBtn.disabled = true;
-                pageIndicator.innerText = "Page 4 of 4";
+            function fire(particleRatio, opts) {
+                confetti(Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio)
+                }));
             }
+
+            fire(0.25, { spread: 26, startVelocity: 55 });
+            fire(0.2, { spread: 60 });
+            fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
+            fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
+            fire(0.1, { spread: 120, startVelocity: 45 });
         }
 
-        function nextPage() {
-            if (currentSpread < 3) {
-                currentSpread++;
-                updateBookState();
-            }
-        }
+        // Complete 4-Line Happy Birthday Song (Fast Tempo & Crisp Synth Sound)
+        let isPlaying = false;
 
-        function prevPage() {
-            if (currentSpread > 1) {
-                currentSpread--;
-                updateBookState();
-            }
+        function playFullBirthdaySong() {
+            const btn = document.getElementById('musicBtn');
+            if (isPlaying) return;
+
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContext) return;
+            
+            const ctx = new AudioContext();
+            isPlaying = true;
+            btn.innerText = "🎶 Playing Song...";
+            btn.style.opacity = "0.7";
+
+            // Frequencies for Notes
+            const C4 = 261.63, D4 = 293.66, E4 = 329.63, F4 = 349.23, G4 = 392.00, A4 = 440.00, B4 = 493.88;
+            const C5 = 523.25, D5 = 587.33, E5 = 659.25, F5 = 698.46, G5 = 783.99, A5 = 880.00;
+
+            // Fast Tempo Multiplier (Lower value = Faster Tempo)
+            const T = 0.22; 
+
+            // Full Happy Birthday Melody Sequence (4 Verses)
+            const song = [
+                // Line 1: Happy Birthday to you
+                { note: C4, duration: T }, { note: C4, duration: T*0.8 },
+                { note: D4, duration: T*2 }, { note: C4, duration: T*2 },
+                { note: F4, duration: T*2 }, { note: E4, duration: T*3.5 },
+
+                // Line 2: Happy Birthday to you
+                { note: C4, duration: T }, { note: C4, duration: T*0.8 },
+                { note: D4, duration: T*2 }, { note: C4, duration: T*2 },
+                { note: G4, duration: T*2 }, { note: F4, duration: T*3.5 },
+
+                // Line 3: Happy Birthday dear Neeraj
+                { note: C4, duration: T }, { note: C4, duration: T*0.8 },
+                { note: C5, duration: T*2 }, { note: A4, duration: T*2 },
+                { note: F4, duration: T*2 }, { note: E4, duration: T*2 },
+                { note: D4, duration: T*3.5 },
+
+                // Line 4: Happy Birthday to you
+                { note: A5, duration: T }, { note: A5, duration: T*0.8 },
+                { note: A4, duration: T*2 }, { note: F4, duration: T*2 },
+                { note: G4, duration: T*2 }, { note: F4, duration: T*4 }
+            ];
+
+            let currentTime = ctx.currentTime + 0.1;
+
+            song.forEach((item, index) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                
+                // Polyphonic effect with dual oscillators for rich audio quality
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(item.note, currentTime);
+                
+                // Attack & Decay Envelope
+                gain.gain.setValueAtTime(0.01, currentTime);
+                gain.gain.linearRampToValueAtTime(0.35, currentTime + 0.03);
+                gain.gain.exponentialRampToValueAtTime(0.001, currentTime + item.duration);
+                
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                
+                osc.start(currentTime);
+                osc.stop(currentTime + item.duration);
+                
+                currentTime += item.duration + 0.03; // Tiny gap between notes for clarity
+            });
+
+            // Mid-song confetti burst
+            setTimeout(() => {
+                triggerConfetti();
+            }, (currentTime - ctx.currentTime) * 500);
+
+            // Re-enable button after song finishes
+            const totalDuration = (currentTime - ctx.currentTime) * 1000;
+            setTimeout(() => {
+                isPlaying = false;
+                btn.innerText = "🎵 Replay Birthday Song 🔄";
+                btn.style.opacity = "1";
+                triggerConfetti();
+            }, totalDuration);
         }
     </script>
 </body>
