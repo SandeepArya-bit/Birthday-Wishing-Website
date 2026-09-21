@@ -30,7 +30,7 @@
             justify-content: center;
             min-height: 100vh;
             min-height: 100dvh;
-            padding: 12px;
+            padding: 8px;
             overflow-x: hidden;
             position: relative;
         }
@@ -50,8 +50,8 @@
         .bg-item {
             position: absolute;
             bottom: -50px;
-            font-size: 32px;
-            opacity: 0.7;
+            font-size: 30px;
+            opacity: 0.65;
             animation: floatUp 8s infinite linear;
         }
 
@@ -62,19 +62,19 @@
             100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Full Mobile View Optimizations */
+        /* Optimized for 5-inch Mobile Screens */
         .card-container {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px;
             z-index: 2;
             margin: auto 0;
         }
 
         .greeting-card {
-            background: rgba(22, 22, 35, 0.95);
+            background: rgba(22, 22, 35, 0.96);
             border: 2px solid #ff4757;
             border-radius: 20px;
-            padding: 24px 18px;
+            padding: 20px 14px;
             text-align: center;
             box-shadow: 0 0 25px rgba(255, 71, 87, 0.4);
             backdrop-filter: blur(10px);
@@ -87,8 +87,8 @@
             background: #ffa502;
             color: #1a1a2e;
             font-weight: 800;
-            font-size: 14px;
-            padding: 6px 16px;
+            font-size: 15px;
+            padding: 8px 18px;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -102,31 +102,31 @@
             50% { transform: scale(1.05); }
         }
 
-        /* Large Font Sizes for Easy Reading on Mobile */
+        /* Large & Crisp Typography for 5-inch Display */
         h1.name-title {
             color: #ff4757;
-            font-size: 28px;
-            margin-bottom: 4px;
+            font-size: 32px;
+            margin-bottom: 6px;
             line-height: 1.2;
             font-weight: 800;
-            text-shadow: 0 0 10px rgba(255, 71, 87, 0.6);
+            text-shadow: 0 0 12px rgba(255, 71, 87, 0.6);
         }
 
         h2.wish-title {
             color: #2ed573;
-            font-size: 21px;
+            font-size: 24px;
             margin-bottom: 14px;
             line-height: 1.3;
             font-weight: 700;
         }
 
-        /* Interactive Surprise Gift Animation */
+        /* Gift Animation Icon */
         .gift-box {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 10px auto;
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 8px auto;
             cursor: pointer;
-            font-size: 55px;
+            font-size: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -140,12 +140,12 @@
             50% { transform: translateY(-8px); }
         }
 
-        /* Message Box with Larger Line Height & Text */
+        /* Message Box Designed for Small Screen Readability */
         .message-box {
-            background: rgba(15, 52, 96, 0.85);
+            background: rgba(15, 52, 96, 0.9);
             border-left: 5px solid #00d2d3;
             border-radius: 12px;
-            padding: 16px;
+            padding: 16px 14px;
             margin: 14px 0;
             text-align: left;
             box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
@@ -153,29 +153,29 @@
 
         .message-box p {
             color: #ffffff;
-            font-size: 16px;
+            font-size: 17px;
             line-height: 1.6;
             font-weight: 500;
         }
 
-        /* Responsive Song Request Box */
+        /* Request Box */
         .singing-request-box {
-            background: rgba(255, 71, 87, 0.2);
+            background: rgba(255, 71, 87, 0.22);
             border: 1.5px dashed #ff4757;
             border-radius: 10px;
             padding: 12px;
-            margin-top: 12px;
+            margin-top: 14px;
             text-align: center;
         }
 
         .singing-request-box p {
             color: #ffda79;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             line-height: 1.5;
         }
 
-        /* Big Touch-Friendly Buttons */
+        /* Big Touch Targets for Buttons */
         .btn-group {
             display: flex;
             flex-direction: column;
@@ -186,11 +186,12 @@
 
         .action-btn {
             width: 100%;
+            height: 52px;
             background: linear-gradient(135deg, #ff4757, #ff6b81);
             color: #fff;
             border: none;
-            padding: 14px 18px;
-            font-size: 16px;
+            padding: 0 16px;
+            font-size: 17px;
             font-weight: bold;
             border-radius: 30px;
             cursor: pointer;
@@ -213,7 +214,7 @@
 
         .footer-note {
             margin-top: 14px;
-            font-size: 13px;
+            font-size: 14px;
             color: #cbd5e1;
             font-weight: 500;
         }
@@ -231,7 +232,7 @@
         <div class="bg-item" style="left: 92%; animation-duration: 7s; animation-delay: 1.5s;">⭐</div>
     </div>
 
-    <!-- Main Mobile Card -->
+    <!-- Main Card -->
     <div class="card-container">
         <div class="greeting-card">
             
