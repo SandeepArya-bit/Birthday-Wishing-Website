@@ -1,284 +1,581 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5JJL35HF1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-W5JJL35HF1');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Belated Happy Birthday Neeraj Sharma 🎉</title>
+    <title>Happy Birthday Suraj ☀️ - Dream Indian Roadtrips Edition</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: linear-gradient(135deg, #0d0221, #190a38, #2a085c);
-            color: #fff;
+            background: linear-gradient(135deg, #f0f4f8, #e2e8f0, #cbd5e0);
+            color: #2d3748;
             display: flex;
             flex-direction: column;
-            align-items: center;    
+            align-items: center;
             justify-content: center;
             min-height: 100vh;
             min-height: 100dvh;
-            padding: 8px;
+            padding: 15px 10px;
             overflow-x: hidden;
-            position: relative;
         }
 
-        /* Animated Floating Emojis Background */
-        .bg-animated-container {
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* Top Bar Header */
+        .top-bar {
+            width: 100%;
+            max-width: 390px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            z-index: 10;
+        }
+
+        .card-header-title {
+            font-weight: 800;
+            color: #2b6cb0;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .audio-btn {
+            background: #ffffff;
+            border: 2px solid #cbd5e0;
+            color: #2b6cb0;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 7px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .audio-btn.active {
+            background: #3182ce;
+            color: #ffffff;
+            border-color: #3182ce;
+        }
+
+        /* 3D BOOK CONTAINER */
+        .book-stage {
+            width: 100%;
+            max-width: 390px;
+            height: 570px;
+            perspective: 2200px;
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .book {
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
+            position: relative;
+            transform-style: preserve-3d;
         }
 
-        .bg-item {
+        /* PAGE ITEM */
+        .paper-page {
+            width: 100%;
+            height: 100%;
             position: absolute;
-            bottom: -50px;
-            font-size: 30px;
-            opacity: 0.65;
-            animation: floatUp 8s infinite linear;
+            top: 0;
+            left: 0;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+            border-radius: 18px;
+            cursor: pointer;
         }
 
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            20% { opacity: 0.8; }
-            80% { opacity: 0.8; }
-            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        .paper-page.turned {
+            transform: rotateY(-180deg);
         }
 
-        /* Optimized for 5-inch Mobile Screens */
-        .card-container {
+        .page-face {
+            position: absolute;
             width: 100%;
-            max-width: 480px;
-            z-index: 2;
-            margin: auto 0;
-        }
-
-        .greeting-card {
-            background: rgba(22, 22, 35, 0.96);
-            border: 2px solid #ff4757;
-            border-radius: 20px;
-            padding: 20px 14px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            border-radius: 18px;
+            padding: 20px 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
             text-align: center;
-            box-shadow: 0 0 25px rgba(255, 71, 87, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            width: 100%;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
 
-        .belated-tag {
-            display: inline-block;
-            background: #ffa502;
-            color: #1a1a2e;
+        .page-front {
+            background: linear-gradient(160deg, #ffffff 0%, #f8fafc 100%);
+            z-index: 2;
+        }
+
+        .page-back {
+            background: linear-gradient(160deg, #fafafa 0%, #edf2f7 100%);
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+        /* Spine Crease Effect */
+        .page-face::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 26px;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.06), transparent);
+            border-top-left-radius: 18px;
+            border-bottom-left-radius: 18px;
+            pointer-events: none;
+        }
+
+        .page-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            background: #ebf8ff;
+            color: #2b6cb0;
+            border: 1px solid #bee3f8;
             font-weight: 800;
-            font-size: 15px;
-            padding: 8px 18px;
+            font-size: 11px;
+            padding: 4px 10px;
             border-radius: 20px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-            box-shadow: 0 0 10px rgba(255, 165, 2, 0.6);
-            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .turn-hint {
+            color: #718096;
+            font-size: 11.5px;
+            font-weight: 600;
         }
 
-        /* Large & Crisp Typography for 5-inch Display */
-        h1.name-title {
-            color: #ff4757;
-            font-size: 32px;
-            margin-bottom: 6px;
-            line-height: 1.2;
+        /* Image Display Box */
+        .dest-img-box {
+            width: 100%;
+            height: 180px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dest-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dest-tag {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background: rgba(15, 23, 42, 0.75);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            backdrop-filter: blur(4px);
+        }
+
+        h2.title {
+            color: #1a202c;
+            font-size: 20px;
             font-weight: 800;
-            text-shadow: 0 0 12px rgba(255, 71, 87, 0.6);
+            margin: 2px 0;
         }
 
-        h2.wish-title {
-            color: #2ed573;
-            font-size: 24px;
-            margin-bottom: 14px;
-            line-height: 1.3;
+        /* Full 4-Line Song Container */
+        .song-container {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #3182ce;
+            border-radius: 10px;
+            padding: 10px 12px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .song-line {
+            color: #2d3748;
+            font-size: 13px;
+            line-height: 1.6;
             font-weight: 700;
         }
 
-        /* Gift Animation Icon */
-        .gift-box {
-            width: 75px;
-            height: 75px;
-            margin: 0 auto 8px auto;
-            cursor: pointer;
-            font-size: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: bounce 1.5s infinite;
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
+        .song-line span {
+            color: #3182ce;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        /* Message Box Designed for Small Screen Readability */
-        .message-box {
-            background: rgba(15, 52, 96, 0.9);
-            border-left: 5px solid #00d2d3;
-            border-radius: 12px;
-            padding: 16px 14px;
-            margin: 14px 0;
-            text-align: left;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
-        }
-
-        .message-box p {
-            color: #ffffff;
-            font-size: 17px;
-            line-height: 1.6;
-            font-weight: 500;
-        }
-
-        /* Request Box */
-        .singing-request-box {
-            background: rgba(255, 71, 87, 0.22);
-            border: 1.5px dashed #ff4757;
+        /* Travel Wish Box */
+        .wish-box {
+            background: #f0fff4;
+            border: 1px dashed #68d391;
             border-radius: 10px;
-            padding: 12px;
-            margin-top: 14px;
-            text-align: center;
+            padding: 10px 12px;
+            width: 100%;
+            text-align: left;
         }
 
-        .singing-request-box p {
-            color: #ffda79;
-            font-size: 16px;
+        .wish-box p {
+            color: #22543d;
+            font-size: 12.5px;
+            line-height: 1.4;
             font-weight: 600;
-            line-height: 1.5;
         }
 
-        /* Big Touch Targets for Buttons */
-        .btn-group {
+        /* Controls */
+        .controls {
+            width: 100%;
+            max-width: 390px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 18px;
-            width: 100%;
+            gap: 10px;
         }
 
-        .action-btn {
-            width: 100%;
-            height: 52px;
-            background: linear-gradient(135deg, #ff4757, #ff6b81);
-            color: #fff;
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            height: 46px;
             border: none;
-            padding: 0 16px;
-            font-size: 17px;
-            font-weight: bold;
-            border-radius: 30px;
+            border-radius: 23px;
+            background: linear-gradient(135deg, #3182ce, #2b6cb0);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 14.5px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 4px 12px rgba(49, 130, 206, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            -webkit-tap-highlight-color: transparent;
+            transition: all 0.15s ease;
         }
 
-        .action-btn:active {
-            transform: scale(0.97);
+        .btn.secondary {
+            background: #ffffff;
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
-        .action-btn.secondary {
-            background: linear-gradient(135deg, #1e90ff, #70a1ff);
-            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.4);
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
         }
 
-        .footer-note {
-            margin-top: 14px;
-            font-size: 14px;
-            color: #cbd5e1;
-            font-weight: 500;
+        .page-indicator {
+            text-align: center;
+            font-size: 12.5px;
+            color: #718096;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Animation Layer -->
-    <div class="bg-animated-container">
-        <div class="bg-item" style="left: 5%; animation-duration: 7s;">🎈</div>
-        <div class="bg-item" style="left: 22%; animation-duration: 9s; animation-delay: 1s;">🎂</div>
-        <div class="bg-item" style="left: 40%; animation-duration: 6s; animation-delay: 2s;">🎤</div>
-        <div class="bg-item" style="left: 58%; animation-duration: 8s; animation-delay: 0.5s;">🎉</div>
-        <div class="bg-item" style="left: 78%; animation-duration: 10s; animation-delay: 2.5s;">🎁</div>
-        <div class="bg-item" style="left: 92%; animation-duration: 7s; animation-delay: 1.5s;">⭐</div>
+    <!-- TOP CONTROL -->
+    <div class="top-bar">
+        <div class="card-header-title">🎂 Suraj's Birthday 🏔️</div>
+        <button class="audio-btn" id="audioBtn" onclick="toggleAudio()">
+            <span id="audioIcon">🎵</span> <span id="audioText">Play Tune</span>
+        </button>
     </div>
 
-    <!-- Main Card -->
-    <div class="card-container">
-        <div class="greeting-card">
-            
-            <div class="belated-tag">⏳ Belated Wishes</div>
-            
-            <div class="gift-box" onclick="triggerConfetti()" title="Tap for surprise!">🎁</div>
+    <!-- 3D BOOK CONTAINER -->
+    <div class="book-stage">
+        <div class="book">
 
-            <h1 class="name-title">Neeraj Sharma</h1>
-            <h2 class="wish-title">Belated Happy Birthday! 🎉🥳</h2>
+            <!-- PAGE 1: MANALI -->
+            <div class="paper-page" id="p1" style="z-index: 4;">
+                <div class="page-face page-front">
+                    <div class="page-header">
+                        <span class="badge">Page 1 / 4</span>
+                        <span class="turn-hint">📖 Tap to Turn</span>
+                    </div>
 
-            <div class="message-box">
-                <p>
-                    💡 <b>Aapke liye khaas dua:</b><br>
-                    <i>"Aap hamesha aise hi aage badhte rahein... Khud nayi-nayi cheezein seekhte rahein, aur hamesha doosron ko bhi seekhne mein madad karte rahein!"</i>
-                </p>
-                
-                <div class="singing-request-box">
-                    <p>🎤 <b>Chhoti Si Request:</b><br>
-                    Iss birthday celebration ke mauke par hum sabke liye ek pyara sa gana zaroor gaana! 🎶 Suna hai aapki aawaz mein alag hi baat hai! 😉✨</p>
+                    <div class="dest-img-box">
+                        <img src="https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSmoT2fpYoXZ3GZdY6UL1-w_THh-7U8Qf9ViY62CAnkQK87Etj5BbxTagQ-mai_Oik6-CJvQM_f_VMfsfs" alt="Manali Snow Peak Mountains">
+                        <div class="dest-tag">🏔️ Solang Valley & Manali</div>
+                    </div>
+
+                    <h2 class="title">Snowy Manali Escape!</h2>
+
+                    <div class="song-container">
+                        <div class="song-line"><span>1.</span> Happy birthday to you,</div>
+                        <div class="song-line"><span>2.</span> Happy birthday to you,</div>
+                        <div class="song-line"><span>3.</span> Happy birthday dear Suraj,</div>
+                        <div class="song-line"><span>4.</span> Happy birthday to you!</div>
+                    </div>
+
+                    <div class="wish-box">
+                        <p><strong>Travel Wish:</strong> May this coming year bring you an epic snow-filled road trip to Manali with hot tea, maggi, and stunning mountain views!</p>
+                    </div>
                 </div>
+                <div class="page-face page-back"></div>
             </div>
 
-            <div class="btn-group">
-                <button class="action-btn" onclick="triggerConfetti()">
-                    🎉 Celebrate & Blast Confetti
-                </button>
-                <button class="action-btn secondary" id="musicBtn" onclick="playFullBirthdaySong()">
-                    🎵 Play Birthday Song
-                </button>
+            <!-- PAGE 2: LADAKH BIKE RIDE -->
+            <div class="paper-page" id="p2" style="z-index: 3;">
+                <div class="page-face page-front">
+                    <div class="page-header">
+                        <span class="badge">Page 2 / 4</span>
+                        <span class="turn-hint">🏍️ Ultimate Bike Trip</span>
+                    </div>
+
+                    <div class="dest-img-box">
+                        <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQjwIcxWRTXW8_PwlmDj4GJdRnPlWbXnj7tq4xWlxw1HAh94jPpixQx0C53_UXvWCfT7eTLTnOqipYwc1c" alt="Ladakh Highway Bike Trip">
+                        <div class="dest-tag">🏍️ Ladakh Highway Ride</div>
+                    </div>
+
+                    <h2 class="title">Dream Bike Ride to Ladakh!</h2>
+
+                    <div class="song-container">
+                        <div class="song-line"><span>1.</span> Happy birthday to you,</div>
+                        <div class="song-line"><span>2.</span> Happy birthday to you,</div>
+                        <div class="song-line"><span>3.</span> Happy birthday dear Suraj,</div>
+                        <div class="song-line"><span>4.</span> Happy birthday to you!</div>
+                    </div>
+
+                    <div class="wish-box">
+                        <p><strong>Travel Wish:</strong> Gear up brother! Wishing you the ultimate dream motorcycle ride across the high passes of Ladakh and Khardung La this year!</p>
+                    </div>
+                </div>
+                <div class="page-face page-back"></div>
             </div>
 
-            <p class="footer-note">Late sahi, par wishes dil se hain! ❤️</p>
+            <!-- PAGE 3: GOA BEACH -->
+            <div class="paper-page" id="p3" style="z-index: 2;">
+                <div class="page-face page-front">
+                    <div class="page-header">
+                        <span class="badge">Page 3 / 4</span>
+                        <span class="turn-hint">🏖️ Beach Vibe</span>
+                    </div>
+
+                    <div class="dest-img-box">
+                        <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQi-dliCeOKYCNzPd2k9jf1Q_uwQ1lMAuFmPQ-P_AVW8YNVQ_WyVnMkEBtM7ZvrinIwhvAE2iocI1RtZ7I" alt="Goa Sunset Beach Palms">
+                        <div class="dest-tag">🏖️ Goa Sunset Beaches</div>
+                    </div>
+
+                    <h2 class="title">Chilling in Goa!</h2>
+
+                    <div class="song-container">
+                        <div class="song-line"><span>1.</span> Happy birthday to you,</div>
+                        <div class="song-line"><span>2.</span> Happy birthday to you,</div>
+                        <div class="song-line"><span>3.</span> Happy birthday dear Suraj,</div>
+                        <div class="song-line"><span>4.</span> Happy birthday to you!</div>
+                    </div>
+
+                    <div class="wish-box">
+                        <p><strong>Travel Wish:</strong> From mountain rides to golden beaches! May you finally execute that legendary Goa plan with the squad!</p>
+                    </div>
+                </div>
+                <div class="page-face page-back"></div>
+            </div>
+
+            <!-- PAGE 4: UDAIPUR -->
+            <div class="paper-page" id="p4" style="z-index: 1;">
+                <div class="page-face page-front">
+                    <div class="page-header">
+                        <span class="badge">Page 4 / 4</span>
+                        <span class="turn-hint">👑 Royal Lakes</span>
+                    </div>
+
+                    <div class="dest-img-box">
+                        <img src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRalQ2QH9_6vCc1zPh2i5ubsB0Tg8DPQtJvTtKAn0nLlhdyvxstBeQJSNnID_MzAPhIlj0xSnpHIdkxwQE" alt="Udaipur Lake Palace">
+                        <div class="dest-tag">🏰 Udaipur City Palace</div>
+                    </div>
+
+                    <h2 class="title">Royal Lakes of Udaipur!</h2>
+
+                    <div class="wish-box">
+                        <p><strong>Grand Birthday Wish:</strong> May your year be as majestic and bright as the lakes of Udaipur! Have a fantastic birthday Suraj! 💥</p>
+                    </div>
+
+                    <button class="btn" style="width: 100%; margin-top: 4px;" onclick="triggerConfetti()">🎉 Celebrate Birthday!</button>
+                </div>
+                <div class="page-face page-back"></div>
+            </div>
+
         </div>
     </div>
 
+    <!-- CONTROLS -->
+    <div class="controls">
+        <div class="btn-group">
+            <button class="btn secondary" id="prevBtn" onclick="prevPage()" disabled>← Previous</button>
+            <button class="btn" id="nextBtn" onclick="nextPage()">Flip Page 📖</button>
+        </div>
+        <div class="page-indicator" id="pageIndicator">Page 1 of 4</div>
+    </div>
+
     <script>
-        // Automatic Confetti Blast on Load
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                triggerConfetti();
-            }, 400);
+        let currentLocation = 1;
+        const numOfPapers = 4;
+        let isMusicPlaying = false;
+        let audioCtx = null;
+        let musicTimer = null;
+
+        // ACCURATE 4-LINE HAPPY BIRTHDAY SONG SYNTH
+        function playCompleteBirthdayMelody() {
+            if (!isMusicPlaying) return;
+
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+
+            // Standard pitch frequencies:
+            const C4 = 261.63, D4 = 293.66, E4 = 329.63, F4 = 349.23;
+            const G4 = 392.00, A4 = 440.00, B4 = 493.88, C5 = 523.25;
+
+            // 4 Complete Lines of Happy Birthday
+            const melody = [
+                // Line 1: Happy birthday to you
+                { pitch: C4, dur: 0.35 }, { pitch: C4, dur: 0.25 }, { pitch: D4, dur: 0.6 },
+                { pitch: C4, dur: 0.6 },  { pitch: F4, dur: 0.6 },  { pitch: E4, dur: 1.1 },
+                
+                // Line 2: Happy birthday to you
+                { pitch: C4, dur: 0.35 }, { pitch: C4, dur: 0.25 }, { pitch: D4, dur: 0.6 },
+                { pitch: C4, dur: 0.6 },  { pitch: G4, dur: 0.6 },  { pitch: F4, dur: 1.1 },
+
+                // Line 3: Happy birthday dear Suraj
+                { pitch: C4, dur: 0.35 }, { pitch: C4, dur: 0.25 }, { pitch: C5, dur: 0.6 },
+                { pitch: A4, dur: 0.6 },  { pitch: F4, dur: 0.6 },  { pitch: E4, dur: 0.6 }, { pitch: D4, dur: 1.1 },
+
+                // Line 4: Happy birthday to you
+                { pitch: A4, dur: 0.35 }, { pitch: A4, dur: 0.25 }, { pitch: F4, dur: 0.6 },
+                { pitch: G4, dur: 0.6 },  { pitch: F4, dur: 1.2 }
+            ];
+
+            let currentTime = audioCtx.currentTime;
+            
+            melody.forEach(item => {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(item.pitch, currentTime);
+
+                gain.gain.setValueAtTime(0.14, currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, currentTime + item.dur);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                osc.start(currentTime);
+                osc.stop(currentTime + item.dur);
+
+                currentTime += item.dur + 0.08;
+            });
+
+            // Loop smoothly after song finishes
+            musicTimer = setTimeout(() => {
+                if (isMusicPlaying) playCompleteBirthdayMelody();
+            }, 13000);
+        }
+
+        function toggleAudio() {
+            const btn = document.getElementById('audioBtn');
+            const icon = document.getElementById('audioIcon');
+            const text = document.getElementById('audioText');
+
+            if (!isMusicPlaying) {
+                isMusicPlaying = true;
+                btn.classList.add('active');
+                icon.innerText = "🔊";
+                text.innerText = "Music On";
+                playCompleteBirthdayMelody();
+            } else {
+                isMusicPlaying = false;
+                btn.classList.remove('active');
+                icon.innerText = "🎵";
+                text.innerText = "Play Tune";
+                if (musicTimer) clearTimeout(musicTimer);
+            }
+        }
+
+        function updateUI() {
+            document.getElementById('prevBtn').disabled = currentLocation === 1;
+            document.getElementById('pageIndicator').innerText = `Page ${currentLocation} of ${numOfPapers}`;
+
+            const nextBtn = document.getElementById('nextBtn');
+            if (currentLocation === numOfPapers) {
+                nextBtn.innerText = "Restart Card 🔄";
+            } else {
+                nextBtn.innerText = "Flip Page 📖";
+            }
+        }
+
+        function nextPage() {
+            if (!isMusicPlaying && currentLocation === 1) {
+                toggleAudio();
+            }
+
+            if (currentLocation < numOfPapers) {
+                const page = document.getElementById(`p${currentLocation}`);
+                page.classList.add('turned');
+                currentLocation++;
+                updateUI();
+                
+                if (currentLocation === numOfPapers) {
+                    triggerConfetti();
+                }
+            } else {
+                for (let i = 1; i <= numOfPapers; i++) {
+                    document.getElementById(`p${i}`).classList.remove('turned');
+                }
+                currentLocation = 1;
+                updateUI();
+            }
+        }
+
+        function prevPage() {
+            if (currentLocation > 1) {
+                currentLocation--;
+                const page = document.getElementById(`p${currentLocation}`);
+                page.classList.remove('turned');
+                updateUI();
+            }
+        }
+
+        document.querySelectorAll('.paper-page').forEach((page, index) => {
+            page.addEventListener('click', (e) => {
+                if (e.target.tagName === 'BUTTON') return;
+                if (index + 1 === currentLocation && currentLocation < numOfPapers) {
+                    nextPage();
+                }
+            });
         });
 
-        // Confetti Burst Trigger
         function triggerConfetti() {
-            var count = 180;
+            var count = 220;
             var defaults = { origin: { y: 0.7 } };
 
             function fire(particleRatio, opts) {
@@ -291,83 +588,11 @@
             fire(0.2, { spread: 60 });
             fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8 });
             fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2 });
-            fire(0.1, { spread: 120, startVelocity: 45 });
         }
 
-        // Fast-Tempo & Full Melody Birthday Music Synth
-        let isPlaying = false;
-
-        function playFullBirthdaySong() {
-            const btn = document.getElementById('musicBtn');
-            if (isPlaying) return;
-
-            const AudioContext = window.AudioContext || window.webkitAudioContext;
-            if (!AudioContext) return;
-            
-            const ctx = new AudioContext();
-            isPlaying = true;
-            btn.innerText = "🎶 Playing Song...";
-            btn.style.opacity = "0.75";
-
-            // Frequencies
-            const C4 = 261.63, D4 = 293.66, E4 = 329.63, F4 = 349.23, G4 = 392.00, A4 = 440.00;
-            const C5 = 523.25, D5 = 587.33, E5 = 659.25, F5 = 698.46, G5 = 783.99, A5 = 880.00;
-
-            const T = 0.22; 
-
-            const song = [
-                { note: C4, duration: T }, { note: C4, duration: T*0.8 },
-                { note: D4, duration: T*2 }, { note: C4, duration: T*2 },
-                { note: F4, duration: T*2 }, { note: E4, duration: T*3.5 },
-
-                { note: C4, duration: T }, { note: C4, duration: T*0.8 },
-                { note: D4, duration: T*2 }, { note: C4, duration: T*2 },
-                { note: G4, duration: T*2 }, { note: F4, duration: T*3.5 },
-
-                { note: C4, duration: T }, { note: C4, duration: T*0.8 },
-                { note: C5, duration: T*2 }, { note: A4, duration: T*2 },
-                { note: F4, duration: T*2 }, { note: E4, duration: T*2 },
-                { note: D4, duration: T*3.5 },
-
-                { note: A5, duration: T }, { note: A5, duration: T*0.8 },
-                { note: A4, duration: T*2 }, { note: F4, duration: T*2 },
-                { note: G4, duration: T*2 }, { note: F4, duration: T*4 }
-            ];
-
-            let currentTime = ctx.currentTime + 0.1;
-
-            song.forEach((item) => {
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(item.note, currentTime);
-                
-                gain.gain.setValueAtTime(0.01, currentTime);
-                gain.gain.linearRampToValueAtTime(0.35, currentTime + 0.03);
-                gain.gain.exponentialRampToValueAtTime(0.001, currentTime + item.duration);
-                
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                
-                osc.start(currentTime);
-                osc.stop(currentTime + item.duration);
-                
-                currentTime += item.duration + 0.03;
-            });
-
-            setTimeout(() => {
-                triggerConfetti();
-            }, (currentTime - ctx.currentTime) * 500);
-
-            const totalDuration = (currentTime - ctx.currentTime) * 1000;
-            setTimeout(() => {
-                isPlaying = false;
-                btn.innerText = "🎵 Replay Song 🔄";
-                btn.style.opacity = "1";
-                triggerConfetti();
-            }, totalDuration);
-        }
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(triggerConfetti, 400);
+        });
     </script>
 </body>
 </html>
