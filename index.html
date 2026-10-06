@@ -113,9 +113,9 @@
 <body class="relative flex flex-col justify-between items-center min-h-screen p-4 sm:p-6" onclick="startAudioOnInteraction()">
 
     <!-- Audio Element for Local Song -->
-    <audio id="bg-music" loop preload="auto">
-        <source src="nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
-    </audio>
+    <audio id="bg-music" loop preload="auto" playsinline>
+    <source src="./nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
+</audio>
 
     <div id="particle-container" class="fixed inset-0 pointer-events-none z-0"></div>
 
