@@ -233,26 +233,47 @@
     </footer>
 
     <script>
-        const audio = document.getElementById('bg-music');
-        let isPlaying = false;
+       const audio = document.getElementById('bg-music');
+let isPlaying = false;
 
-        function playBirthdaySong() {
-            if (audio) {
-                audio.play().then(() => {
-                    isPlaying = true;
-                    document.getElementById('music-icon').className = 'fas fa-volume-high text-base sm:text-lg text-amber-300';
-                }).catch(err => console.log("Audio play deferred:", err));
-            }
+function playBirthdaySong() {
+    if (audio) {
+        audio.muted = false; // Muted property clear karein
+        let playPromise = audio.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                isPlaying = true;
+                document.getElementById('music-icon').className = 'fas fa-volume-high text-base sm:text-lg text-amber-300';
+            }).catch(err => {
+                console.log("Autoplay blocked or deferred:", err);
+            });
         }
+    }
+}
 
-        function stopBirthdaySong() {
-            if (audio) {
-                audio.pause();
-                isPlaying = false;
-                document.getElementById('music-icon').className = 'fas fa-music text-base sm:text-lg text-amber-300';
-            }
-        }
+function stopBirthdaySong() {
+    if (audio) {
+        audio.pause();
+        isPlaying = false;
+        document.getElementById('music-icon').className = 'fas fa-music text-base sm:text-lg text-amber-300';
+    }
+}
 
+function toggleAudio(e) {
+    if (e) e.stopPropagation();
+    if (isPlaying) {
+        stopBirthdaySong();
+    } else {
+        playBirthdaySong();
+    }
+}
+
+function startAudioOnInteraction() {
+    if (!isPlaying && audio.paused) {
+        playBirthdaySong();
+    }
+}
         function toggleAudio(e) {
             if (e) e.stopPropagation();
             if (isPlaying) {
