@@ -18,15 +18,9 @@
             overflow-x: hidden;
         }
 
-        .font-cinzel {
-            font-family: 'Cinzel', serif;
-        }
+        .font-cinzel { font-family: 'Cinzel', serif; }
+        .font-hindi { font-family: 'Rozha One', serif; }
 
-        .font-hindi {
-            font-family: 'Rozha One', serif;
-        }
-
-        /* Gold Gradient and Metallic Effects */
         .gold-text {
             background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
             -webkit-background-clip: text;
@@ -43,7 +37,6 @@
             box-shadow: 0 0 25px rgba(251, 245, 183, 0.4);
         }
 
-        /* Amazon Custom Button */
         .amazon-btn {
             background: linear-gradient(135deg, #FF9900 0%, #FFB443 100%);
             color: #111827;
@@ -55,7 +48,6 @@
             box-shadow: 0 15px 30px rgba(255, 153, 0, 0.45);
         }
 
-        /* Luxury Gift Card Ribbon */
         .gift-ribbon {
             position: absolute;
             top: 0;
@@ -73,7 +65,6 @@
             box-shadow: 0 0 15px rgba(234, 179, 8, 0.6), inset 0 0 8px rgba(255,255,255,0.8);
         }
 
-        /* Glassmorphism Voucher Container */
         .glass-voucher {
             background: rgba(22, 16, 34, 0.88);
             backdrop-filter: blur(20px);
@@ -81,7 +72,6 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7), 0 0 40px rgba(191, 149, 63, 0.2);
         }
 
-        /* Prominently Highlighted Notice Badge Styling */
         .highlight-notice {
             background: linear-gradient(135deg, rgba(239, 68, 68, 0.3) 0%, rgba(245, 158, 11, 0.3) 100%);
             border: 2px solid rgba(251, 191, 36, 0.9);
@@ -100,13 +90,11 @@
             }
         }
 
-        /* Scratch Canvas Mechanics */
         #scratch-canvas {
             touch-action: none;
             cursor: pointer;
         }
 
-        /* Background Animated Floating Particles */
         .particle {
             position: absolute;
             pointer-events: none;
@@ -122,12 +110,17 @@
         }
     </style>
 </head>
-<body class="relative flex flex-col justify-between items-center min-h-screen p-4 sm:p-6">
+<body class="relative flex flex-col justify-between items-center min-h-screen p-4 sm:p-6" onclick="startAudioOnInteraction()">
+
+    <!-- Audio Element for Local Song -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="nastelbom-happy-birthday-495860.mp3" type="audio/mpeg">
+    </audio>
 
     <div id="particle-container" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Music Control Floating Button -->
-    <button id="music-toggle" onclick="toggleAudio()" aria-label="Toggle Birthday Music" class="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 bg-slate-900/80 text-amber-300 p-3 sm:p-3.5 rounded-full shadow-2xl border border-amber-400/40 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center">
+    <button id="music-toggle" onclick="toggleAudio(event)" aria-label="Toggle Birthday Music" class="fixed top-4 right-4 sm:top-6 sm:right-6 z-50 bg-slate-900/80 text-amber-300 p-3 sm:p-3.5 rounded-full shadow-2xl border border-amber-400/40 hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center">
         <i id="music-icon" class="fas fa-music text-base sm:text-lg"></i>
     </button>
 
@@ -146,12 +139,10 @@
     <main class="w-full max-w-xl z-10 my-auto">
         <div class="relative glass-voucher rounded-2xl sm:rounded-3xl p-4 sm:p-7 border-2 border-amber-400/40 overflow-hidden">
             
-            <!-- Gift Ribbon -->
             <div class="gift-ribbon flex items-end justify-center pb-2">
                 <i class="fas fa-gift text-white/90 text-xs"></i>
             </div>
 
-            <!-- Voucher Header -->
             <div class="flex justify-between items-start mb-4 border-b border-amber-500/20 pb-3">
                 <div>
                     <span class="text-[10px] sm:text-xs font-cinzel font-extrabold tracking-widest text-amber-400/80 uppercase block">
@@ -167,10 +158,8 @@
                 </div>
             </div>
 
-            <!-- Gift Display Window -->
             <div class="relative w-full aspect-[16/10] sm:aspect-[21/10] rounded-xl sm:rounded-2xl overflow-hidden border-2 border-amber-400/50 shadow-2xl bg-slate-950">
                 
-                <!-- Hidden Revealed Content (Realme Watch) -->
                 <div id="revealed-gift" class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 p-3 sm:p-5 flex items-center justify-between gap-3">
                     
                     <div class="flex-1 space-y-2 z-10">
@@ -181,16 +170,14 @@
                             Realme Smartwatch ⌚
                         </h3>
                         
-                        <!-- Prominently HIGHLIGHTED Note Badge -->
                         <div class="highlight-notice rounded-xl px-3.5 py-2 inline-flex items-center gap-2 max-w-full my-1">
                             <span class="text-amber-200 text-xs sm:text-sm font-extrabold tracking-wide font-hindi leading-tight drop-shadow">
                                 Par yeh aapko Sharado ke baad hi milegi 🥺
                             </span>
                         </div>
 
-                        <!-- Direct Amazon Button -->
                         <div class="pt-1">
-                            <a href="https://www.amazon.in/realme-Battery-Calling-Smartwatch-Titanium/dp/B0GHGBSV6D/ref=sr_1_5?crid=2LY6ZP1M817HT&dib=eyJ2IjoiMSJ9.JEDzjJZlkGlWV0etOpf7mf8bns1FzTDC4lzaARLDz6lNX3-7m9WzRsOV9fExJmYT1FSzRcf6To2JdzvNJIamFzt4XJexaRAQ8nMM6kaXH8VHrvnAG32E84HX_nhDn5KC-AqFOCbwuvSrngA5wPrAnjTIS_vbreGC7AnBlPuWhiE134NNbTU1kt5cr1Emaar4FD0b_xoohKP1yn44EpfpGAxPUlxrGprJCNOwQ7t_fs9WjnM51wwgm6IQnAv3W9CLHPUIVEEAXXA26iPmTEckIZV6GvvSJdGpS1dxz4reKPw.DcY_QJ8uYxEWkvoSqaTWspoh2b03eoSOJ_uPY1zNbgg&dib_tag=se&keywords=realme+5+watch&nsdOptOutParam=true&qid=1791309779&s=electronics&sprefix=realem+5+watch+%2Celectronics%2C249&sr=1-5" target="_blank" rel="noopener noreferrer" class="amazon-btn inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold tracking-wide">
+                            <a href="https://www.amazon.in/realme-Battery-Calling-Smartwatch-Titanium/dp/B0GHGBSV6D/" target="_blank" rel="noopener noreferrer" class="amazon-btn inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold tracking-wide">
                                 <i class="fab fa-amazon text-base"></i>
                                 <span>Amazon Par Dekhein</span>
                                 <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
@@ -200,25 +187,18 @@
 
                     <div class="relative w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 flex items-center justify-center">
                         <svg class="w-full h-full drop-shadow-[0_10px_20px_rgba(59,130,246,0.5)]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Watch Straps -->
                             <rect x="75" y="10" width="50" height="40" rx="8" fill="#1e293b" />
                             <rect x="75" y="150" width="50" height="40" rx="8" fill="#1e293b" />
                             <rect x="80" y="15" width="40" height="25" rx="4" fill="#0f172a" opacity="0.6"/>
                             <rect x="80" y="160" width="40" height="25" rx="4" fill="#0f172a" opacity="0.6"/>
-                            <!-- Dial Outer Frame -->
                             <rect x="50" y="40" width="100" height="120" rx="28" fill="#334155" stroke="#fbbf24" stroke-width="3"/>
-                            <!-- Display Screen -->
                             <rect x="56" y="46" width="88" height="108" rx="22" fill="#020617"/>
-                            <!-- Screen UI Elements -->
                             <text x="100" y="85" text-anchor="middle" fill="#38bdf8" font-family="sans-serif" font-weight="bold" font-size="22">10:10</text>
                             <text x="100" y="102" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="9" font-weight="600">SPECIAL DAY</text>
-                            <!-- Activity Rings -->
                             <circle cx="82" cy="125" r="12" stroke="#ef4444" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="15"/>
                             <circle cx="100" cy="125" r="12" stroke="#22c55e" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="25"/>
                             <circle cx="118" cy="125" r="12" stroke="#3b82f6" stroke-width="3" fill="none" stroke-dasharray="60" stroke-dashoffset="10"/>
-                            <!-- Side Crown -->
                             <rect x="150" y="85" width="6" height="30" rx="3" fill="#fbbf24"/>
-                            <!-- Brand Text -->
                             <text x="100" y="62" text-anchor="middle" fill="#e2e8f0" font-family="sans-serif" font-size="8" font-weight="bold" letter-spacing="1">REALME WATCH</text>
                         </svg>
                     </div>
@@ -227,12 +207,10 @@
                 <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full rounded-xl sm:rounded-2xl z-20"></canvas>
             </div>
 
-            <!-- Scratch Helper Instruction -->
             <div id="scratch-status" class="text-center mt-3 text-xs sm:text-sm font-semibold text-amber-300/90 animate-pulse flex items-center justify-center gap-2">
                 <i class="fas fa-hand-pointer text-amber-400"></i> Scratch the card above to reveal Rajesh Bhai's birthday gift!
             </div>
 
-            <!-- Voucher Footer -->
             <div class="mt-5 pt-3 border-t border-amber-500/20 flex justify-between items-center text-[11px] sm:text-xs text-slate-400">
                 <div class="flex items-center gap-2">
                     <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full hologram-seal flex items-center justify-center text-slate-900 font-bold text-[10px]">
@@ -249,65 +227,44 @@
     </main>
 
     <footer class="mt-6 mb-3 text-center z-10">
-        <button onclick="triggerBlast()" class="gold-button text-slate-950 font-bold text-xs sm:text-sm px-6 py-2.5 sm:px-8 sm:py-3 rounded-full shadow-2xl flex items-center gap-2 mx-auto border border-amber-200">
+        <button onclick="triggerBlast(event)" class="gold-button text-slate-950 font-bold text-xs sm:text-sm px-6 py-2.5 sm:px-8 sm:py-3 rounded-full shadow-2xl flex items-center gap-2 mx-auto border border-amber-200">
             <i class="fas fa-sparkles"></i> Celebrate Rajesh Bhai! 🎉
         </button>
     </footer>
 
     <script>
-        let audioCtx = null;
+        const audio = document.getElementById('bg-music');
         let isPlaying = false;
 
-        function playBirthdayTone() {
-            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-
-            const notes = [
-                { note: 261.63, duration: 0.3 },
-                { note: 261.63, duration: 0.3 },
-                { note: 293.66, duration: 0.6 },
-                { note: 261.63, duration: 0.6 },
-                { note: 349.23, duration: 0.6 },
-                { note: 329.63, duration: 1.0 },
-                { note: 261.63, duration: 0.3 },
-                { note: 261.63, duration: 0.3 },
-                { note: 293.66, duration: 0.6 },
-                { note: 261.63, duration: 0.6 },
-                { note: 392.00, duration: 0.6 },
-                { note: 349.23, duration: 1.0 }
-            ];
-
-            let time = audioCtx.currentTime;
-            notes.forEach(item => {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(item.note, time);
-
-                gain.gain.setValueAtTime(0.15, time);
-                gain.gain.exponentialRampToValueAtTime(0.001, time + item.duration - 0.05);
-
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                osc.start(time);
-                osc.stop(time + item.duration);
-                time += item.duration;
-            });
+        function playBirthdaySong() {
+            if (audio) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    document.getElementById('music-icon').className = 'fas fa-volume-high text-base sm:text-lg text-amber-300';
+                }).catch(err => console.log("Audio play deferred:", err));
+            }
         }
 
-        function toggleAudio() {
-            const icon = document.getElementById('music-icon');
-            isPlaying = !isPlaying;
+        function stopBirthdaySong() {
+            if (audio) {
+                audio.pause();
+                isPlaying = false;
+                document.getElementById('music-icon').className = 'fas fa-music text-base sm:text-lg text-amber-300';
+            }
+        }
 
+        function toggleAudio(e) {
+            if (e) e.stopPropagation();
             if (isPlaying) {
-                icon.className = 'fas fa-volume-high text-base sm:text-lg text-amber-300';
-                playBirthdayTone();
-                window.audioInterval = setInterval(playBirthdayTone, 7000);
+                stopBirthdaySong();
             } else {
-                icon.className = 'fas fa-music text-base sm:text-lg text-amber-300';
-                if (window.audioInterval) clearInterval(window.audioInterval);
+                playBirthdaySong();
+            }
+        }
+
+        function startAudioOnInteraction() {
+            if (!isPlaying && audio.paused) {
+                playBirthdaySong();
             }
         }
 
@@ -339,7 +296,6 @@
             canvas.width = rect.width;
             canvas.height = rect.height;
 
-            // Render Metallic Gold Surface
             const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
             grad.addColorStop(0, '#bf953f');
             grad.addColorStop(0.25, '#fcf6ba');
@@ -350,7 +306,6 @@
             ctx.fillStyle = grad;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Metallic Texture Lines
             ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
             ctx.lineWidth = 2;
             for (let i = -canvas.height; i < canvas.width; i += 12) {
@@ -360,7 +315,6 @@
                 ctx.stroke();
             }
 
-            // Scratch Instructions Text on Metallic Layer
             ctx.fillStyle = '#3a2002';
             ctx.font = 'bold 14px Cinzel, serif';
             ctx.textAlign = 'center';
@@ -381,18 +335,18 @@
                 clientY = e.touches[0].clientY;
             }
 
-            return {
-                x: clientX - rect.left,
-                y: clientY - rect.top
-            };
+            return { x: clientX - rect.left, y: clientY - rect.top };
         }
 
         function scratch(e) {
             if (!isDrawing || isRevealed) return;
             e.preventDefault();
 
-            const pos = getPos(e);
+            if (!isPlaying) {
+                playBirthdaySong();
+            }
 
+            const pos = getPos(e);
             ctx.globalCompositeOperation = 'destination-out';
             ctx.beginPath();
             ctx.arc(pos.x, pos.y, 22, 0, Math.PI * 2);
@@ -431,30 +385,17 @@
             }
         }
 
-        function triggerBlast() {
-            confetti({
-                particleCount: 100,
-                spread: 70,
-                origin: { y: 0.6 }
-            });
+        function triggerBlast(e) {
+            if (e) e.stopPropagation();
+            if (!isPlaying) playBirthdaySong();
 
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
             setTimeout(() => {
-                confetti({
-                    particleCount: 50,
-                    angle: 60,
-                    spread: 55,
-                    origin: { x: 0 }
-                });
-                confetti({
-                    particleCount: 50,
-                    angle: 120,
-                    spread: 55,
-                    origin: { x: 1 }
-                });
+                confetti({ particleCount: 50, angle: 60, spread: 55, origin: { x: 0 } });
+                confetti({ particleCount: 50, angle: 120, spread: 55, origin: { x: 1 } });
             }, 200);
         }
 
-        // Event Listeners for Touch and Mouse
         canvas.addEventListener('mousedown', (e) => { isDrawing = true; scratch(e); });
         canvas.addEventListener('mousemove', scratch);
         window.addEventListener('mouseup', () => { isDrawing = false; });
