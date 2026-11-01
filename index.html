@@ -3,523 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Sunil Sir! 🏏🎆</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    <!-- Canvas Confetti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        lightGreenBg: '#dcfce7',
-                        mintCard: '#f0fdf4',
-                        deepGreen: '#14532d',
-                        goldAccent: '#d97706',
-                        roseAccent: '#e11d48'
-                    },
-                    fontFamily: {
-                        outfit: ['Outfit', 'sans-serif'],
-                        inter: ['Inter', 'sans-serif'],
-                        serifHeading: ['Playfair Display', 'serif'],
-                        handwriting: ['Caveat', 'cursive']
-                    }
-                }
-            }
-        }
-    </script>
-
+    <title>Happy Birthday Tezal Sir!</title>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 50%, #d1fae5 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Subtle Floating Background Vector Elements */
-        .floating-container {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
+        body {
+            background: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #1e293b;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(3, 105, 161, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 105, 161, 0.6);
+        }
+
+        .btn:disabled {
+            background: #334155;
+            box-shadow: none;
+            cursor: not-allowed;
+            opacity: 0.5;
+            transform: none;
+        }
+
+        .page-indicator {
+            font-size: 14px;
+            color: #cbd5e1;
+            font-weight: 600;
+            background: rgba(255,255,255,0.08);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .book-container {
+            width: 420px;
+            height: 580px;
+            position: relative;
+            perspective: 1500px;
+        }
+
+        .card-page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            cursor: pointer;
+        }
+
+        .page-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             overflow: hidden;
         }
 
-        .float-item {
-            position: absolute;
-            bottom: -90px;
-            animation: floatUp 15s linear infinite;
-            opacity: 0.65;
-            user-select: none;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.04));
+        .page-back {
+            transform: rotateY(180deg);
         }
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg) scale(0.85);
-                opacity: 0;
-            }
-            15% {
-                opacity: 0.7;
-            }
-            85% {
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(-118vh) rotate(360deg) scale(1.1);
-                opacity: 0;
-            }
+        .card-page.flipped {
+            transform: rotateY(-180deg);
         }
 
-        /* Card Container & Page Animations */
-        .card-stage {
-            perspective: 1200px;
+        /* LIGHT BACKGROUNDS */
+        .bg-p1-light {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+            border: 2px solid #7dd3fc;
         }
 
-        .page {
-            display: none;
-            animation: fadeInPage 0.45s ease forwards;
+        .bg-p2-3 {
+            background: #fffdfa;
+            background-image: 
+                radial-gradient(#cbd5e1 1.2px, transparent 1.2px),
+                radial-gradient(#cbd5e1 1.2px, #fffdfa 1.2px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+            color: #0f172a;
+            border: 1px solid #e2e8f0;
         }
 
-        .page.active {
+        .bg-p4-light {
+            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 50%, #fef08a 100%);
+            border: 2px solid #fde047;
+            color: #1e293b;
+        }
+
+        .inner-border {
+            border: 2px dashed #0284c7;
+            height: 100%;
+            border-radius: 12px;
+            padding: 20px;
             display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.5);
         }
 
-        @keyframes fadeInPage {
-            from {
-                opacity: 0;
-                transform: scale(0.96) translateY(12px);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+        .light-amber-border {
+            border: 2px dashed #d97706;
+            height: 100%;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.5);
         }
 
-        .gold-text {
-            background: linear-gradient(135deg, #15803d 0%, #166534 50%, #b45309 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .deco-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0284c7;
+            padding: 14px;
+            border-radius: 8px;
+            margin: 12px 0;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            text-align: left;
         }
 
-        /* Fireworks & Cracker Particles Animation */
-        .firework-spark {
+        .tag-badge {
             display: inline-block;
-            animation: sparklePulse 1.2s ease-in-out infinite alternate;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
-        @keyframes sparklePulse {
-            0% {
-                transform: scale(1) rotate(0deg);
-                filter: drop-shadow(0 0 6px #f59e0b);
-            }
-            100% {
-                transform: scale(1.2) rotate(12deg);
-                filter: drop-shadow(0 0 14px #ef4444);
-            }
+        h1 { font-size: 25px; line-height: 1.3; font-weight: 800; color: #0c4a6e; }
+        h2 { font-size: 19px; color: #0f172a; margin-bottom: 6px; font-weight: 700; }
+        p { font-size: 13.5px; line-height: 1.6; color: #334155; margin-bottom: 10px; }
+
+        .name-title {
+            color: #0284c7;
+            font-weight: 800;
+            font-size: 26px;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .page-num {
+            font-size: 11px;
+            font-weight: bold;
+            color: #94a3b8;
+        }
+
+        .signature-area {
+            margin-top: 15px;
+            border-top: 1px solid #cbd5e1;
+            padding-top: 10px;
+            text-align: left;
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center p-3 sm:p-6 min-h-screen">
+<body>
 
-    <!-- Subtle Floating Vector Elements (Stars, Flowers, Cakes, Confetti & Cricket Face) -->
-    <div class="floating-container" id="floatingContainer"></div>
+    <div class="controls">
+        <button class="btn" id="prevBtn" onclick="prevPage()" disabled>&larr; Previous</button>
+        <span class="page-indicator" id="pageIndicator">Page 1 of 4</span>
+        <button class="btn" id="nextBtn" onclick="nextPage()">Next &rarr;</button>
+    </div>
 
-    <main class="relative z-10 w-full max-w-sm sm:max-w-md mx-auto my-auto space-y-4">
+    <div class="book-container">
+        
+        <!-- SHEET 1 -->
+        <div class="card-page" id="sheet1" style="z-index: 2;" onclick="nextPage()">
+            
+            <!-- PAGE 1: FRONT COVER -->
+            <div class="page-face bg-p1-light">
+                <div class="inner-border">
+                    <div style="font-size: 42px; margin-top: 10px;">🌟👑🎂</div>
+                    
+                    <div>
+                        <span style="letter-spacing: 2px; font-size: 11px; color: #0369a1; text-transform: uppercase; font-weight: 700; background: rgba(255,255,255,0.7); padding: 3px 8px; border-radius: 10px;">To An Elder Brother & Guide</span>
+                        <h1 style="margin: 10px 0;">Happy Birthday!</h1>
+                        
+                        <div style="background: #ffffff; padding: 10px 20px; border-radius: 20px; display: inline-block; margin-top: 5px; box-shadow: 0 4px 10px rgba(2,132,199,0.15);">
+                            <span class="name-title">Tezal Sir 🎈</span>
+                        </div>
+                    </div>
 
-        <!-- Header Status & Audio Controls -->
-        <div class="flex items-center justify-between px-4 py-2.5 rounded-full bg-white/90 backdrop-blur-md border border-emerald-200/80 shadow-sm text-xs font-bold text-emerald-900">
-            <span class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                <span>Special 16th October Card</span>
-            </span>
-            <div class="flex items-center gap-2">
-                <!-- Audio Control Toggle -->
-                <button id="musicToggleBtn" onclick="toggleAudio()" class="px-2.5 py-1 rounded-full bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-xs font-extrabold flex items-center gap-1.5 shadow-sm transition">
-                    <i id="musicIcon" class="fa-solid fa-volume-high text-emerald-700"></i>
-                    <span id="musicStatusText">Audio On</span>
-                </button>
-                <span id="pageIndicator" class="bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full font-extrabold">
-                    Page 1 of 4
-                </span>
+                    <div style="font-size: 12px; color: #0369a1; font-style: italic; font-weight: 600;">
+                        "Wishing an inspiring mentor and elder brother figure a magnificent birthday!" ✨
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
+                    <span class="page-num" style="color: #0369a1;">COVER</span>
+                    <span class="page-num" style="color: #0369a1;">Page 1</span>
+                </div>
             </div>
+
+            <!-- PAGE 2: ADMIRATION & RESPECT -->
+            <div class="page-face page-back bg-p2-3">
+                <div>
+                    <span class="tag-badge">👑 Respect For Our Mentor</span>
+                    
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                        <span style="font-size: 26px;">⭐</span>
+                        <h2>Warmest Wishes, Tezal Sir!</h2>
+                    </div>
+
+                    <p>Wishing you a very Happy Birthday, Sir! Having you around as an elder brother figure and mentor makes every day at work truly rewarding.</p>
+
+                    <div class="deco-card">
+                        <strong style="color: #0284c7; font-size: 12px; display: block; margin-bottom: 4px;">
+                            🌟 BROTHERLY & LEADERSHIP MANTRA
+                        </strong>
+                        <p style="font-size: 12.5px; margin-bottom: 0; font-style: italic; color: #1e293b;">
+                            "A true mentor guides you like an elder brother, supports your growth, and always celebrates your wins." 🤝⚡
+                        </p>
+                    </div>
+
+                    <p style="font-size: 13px;">May your year ahead be blessed with excellent health, great joy, and memorable milestones!</p>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <span class="page-num">Page 2</span>
+                    <span style="font-size: 16px;">🏆🎉</span>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Hidden Audio Element for local sound file -->
-        <audio id="bgAudio" loop preload="auto">
-            <source src="song.mp3" type="audio/mpeg">
-            <source src="music.mp3" type="audio/mpeg">
-            <source src="audio.mp3" type="audio/mpeg">
-            <source src="bgm.mp3" type="audio/mpeg">
-        </audio>
-
-        <!-- PORTRAIT CARD CONTAINER -->
-        <div class="card-stage w-full">
-            <div class="card-container rounded-3xl bg-white border-2 border-emerald-100 shadow-2xl p-6 sm:p-7 min-h-[530px] sm:min-h-[560px] flex flex-col justify-between relative overflow-hidden">
-                
-                <!-- Background Pitch Rings -->
-                <div class="absolute -right-12 -bottom-12 w-48 h-48 rounded-full border-8 border-emerald-50 opacity-40 pointer-events-none"></div>
-
-                <!-- ================= PAGE 1: FRONT COVER ================= -->
-                <div id="page1" class="page active flex-col justify-between items-center text-center h-full space-y-4 my-auto">
+        <!-- SHEET 2 -->
+        <div class="card-page" id="sheet2" style="z-index: 1;">
+            
+            <!-- PAGE 3: AS GUIDING LIGHT IN SALES -->
+            <div class="page-face bg-p2-3" onclick="nextPage()">
+                <div>
+                    <span class="tag-badge" style="background: #e0f2fe; color: #0369a1;">💼 Guiding Light & Mentor</span>
                     
-                    <div class="pt-1">
-                        <span class="px-3.5 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-extrabold uppercase tracking-widest border border-amber-200">
-                            🏏 Dedicated To Team Leader 🏏
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                        <span style="font-size: 26px;">📊</span>
+                        <h2>Always Leading By Example!</h2>
+                    </div>
+
+                    <p>Working with your guidance is an absolute privilege. Your support, wisdom, and brotherly advice help us tackle every challenge with complete confidence!</p>
+
+                    <div class="deco-card" style="border-left-color: #0284c7; background: #f0f9ff;">
+                        <p style="font-size: 12.5px; color: #0369a1; margin: 0; font-weight: 600;">
+                            📈 Birthday Wish For Tezal Sir:<br>
+                            <em>"May your pipelines always stay full, revenue goals keep soaring, and every endeavor turn into success!"</em> 🚀💼
+                        </p>
+                    </div>
+
+                    <p style="font-size: 13px;">Wishing you massive career growth, remarkable achievements, and happiness in everything you do!</p>
+
+                    <div class="signature-area">
+                        <p style="font-weight: 700; color: #0f172a; margin-bottom: 2px;">With deepest respect & brotherly affection,</p>
+                        <p style="font-size: 12px; color: #64748b; margin: 0;">— Your Dedicated & Grateful Team 🤝🔥</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                    <span style="font-size: 16px;">✨</span>
+                    <span class="page-num">Page 3</span>
+                </div>
+            </div>
+
+            <!-- PAGE 4: LIGHT BACK COVER -->
+            <div class="page-face page-back bg-p4-light" onclick="prevPage()">
+                <div class="light-amber-border">
+                    <div style="font-size: 40px; margin-top: 10px;">⚡🎯🏆</div>
+
+                    <div>
+                        <span style="background: #fef3c7; color: #b45309; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">
+                            Future Victories
                         </span>
-                    </div>
 
-                    <div class="space-y-4">
-                        <!-- Modern Cartoon Cricket Player Vector -->
-                        <div class="relative w-28 h-28 mx-auto flex items-center justify-center">
-                            <div class="absolute inset-0 rounded-full bg-emerald-100/80 animate-pulse"></div>
-                            
-                            <div class="relative w-24 h-24 rounded-full bg-emerald-50 border-2 border-emerald-500/40 flex items-center justify-center shadow-md p-1 overflow-hidden">
-                                <svg viewBox="0 0 100 100" class="w-full h-full">
-                                    <circle cx="50" cy="52" r="30" fill="#fde047" />
-                                    <circle cx="40" cy="48" r="3.5" fill="#0f172a" />
-                                    <circle cx="60" cy="48" r="3.5" fill="#0f172a" />
-                                    <path d="M 38 60 Q 50 72 62 60" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
-                                    <circle cx="34" cy="55" r="4" fill="#f87171" opacity="0.6" />
-                                    <circle cx="66" cy="55" r="4" fill="#f87171" opacity="0.6" />
-                                    <path d="M 18 48 C 18 20, 82 20, 82 48 C 82 48, 75 42, 50 42 C 25 42, 18 48, 18 48 Z" fill="#1e3a8a" />
-                                    <path d="M 15 46 Q 50 36 85 46 L 82 51 Q 50 42 18 51 Z" fill="#0f172a" />
-                                    <path d="M 28 50 L 28 66 Q 50 78 72 66 L 72 50" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" />
-                                    <line x1="28" y1="58" x2="72" y2="58" stroke="#94a3b8" stroke-width="2" />
-                                </svg>
-                            </div>
-                            <span class="absolute -bottom-1 -right-1 text-2xl firework-spark">✨</span>
-                        </div>
-
-                        <h1 class="text-2xl sm:text-3xl font-extrabold font-outfit gold-text tracking-tight leading-snug uppercase">
-                            HAPPY BIRTHDAY TO OUR TEAM LEADER SUNIL SIR!
+                        <h1 style="color: #b45309; font-size: 22px; margin: 12px 0 8px 0;">
+                            Keep Guiding & Rising,<br>Tezal Sir!
                         </h1>
-
-                        <p class="text-slate-600 text-xs sm:text-sm font-medium px-2 leading-relaxed">
-                            This is especially for you. Please open your Greeting Card! 🏏
-                        </p>
-                    </div>
-
-                    <div class="w-full pt-3">
-                        <button onclick="startCardAndMusic()" class="w-full py-3.5 px-6 rounded-2xl bg-emerald-800 hover:bg-emerald-900 text-white font-extrabold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition transform active:scale-95 flex items-center justify-center gap-2">
-                            <span>Open Greeting Card</span>
-                            <i class="fa-solid fa-envelope-open text-amber-300"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- ================= PAGE 2: HUMBLE ENGLISH WISHES ================= -->
-                <div id="page2" class="page flex-col justify-between text-center h-full space-y-4 my-auto">
-                    
-                    <div class="flex items-center justify-center gap-2 text-emerald-800 font-extrabold text-xs uppercase tracking-wider">
-                        <span>✨ Heartfelt Birthday Wishes ✨</span>
-                    </div>
-
-                    <div class="space-y-3 my-auto text-slate-700 text-xs sm:text-sm leading-relaxed p-4 rounded-2xl bg-emerald-50/60 border border-emerald-200/70 shadow-sm">
-                        <p class="font-extrabold text-slate-900 text-base font-outfit">
-                            Dear Sunil Sir,
-                        </p>
-
-                        <p class="font-extrabold text-emerald-800 text-sm italic font-serifHeading">
-                            "Happy Birthday to an incredible Leader!"
-                        </p>
-
-                        <p>
-                            May every year of your life be filled with endless joy and happiness. May the coming days bring you immense professional success, recognition, and continuous growth.
-                        </p>
-
-                        <p>
-                            Wishing you and your family abundant peace, good health, and prosperity. Thank you for always guiding us with so much love, warmth, and support!
-                        </p>
-
-                        <!-- Trophy / Professional Growth Vector -->
-                        <div class="pt-2 flex justify-center items-center gap-2 text-amber-600">
-                            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 15.9V18H8v2h8v-2h-3v-2.1c2.25-.37 4-2.31 4-4.66V8c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-between gap-3 pt-1">
-                        <button onclick="prevPage()" class="flex-1 py-2.5 px-4 rounded-xl border border-slate-200 text-slate-600 font-bold text-xs hover:bg-slate-50 transition">
-                            <i class="fa-solid fa-arrow-left mr-1"></i> Back
-                        </button>
-                        <button onclick="nextPage()" class="flex-1 py-2.5 px-4 rounded-xl bg-emerald-800 text-white font-bold text-xs hover:bg-emerald-900 shadow transition">
-                            Next Page <i class="fa-solid fa-arrow-right ml-1"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- ================= PAGE 3: BIRTHDAY SHAYARI & FIREWORKS ================= -->
-                <div id="page3" class="page flex-col justify-between text-center h-full space-y-4 my-auto">
-                    
-                    <div class="flex items-center justify-center gap-2 text-amber-700 font-extrabold text-xs uppercase tracking-wider">
-                        <span>🎆 A Special Dedication for Captain Sunil 🎆</span>
-                    </div>
-
-                    <div class="my-auto space-y-4 bg-amber-50/60 p-5 rounded-2xl border border-amber-200/70 shadow-inner relative overflow-hidden">
                         
-                        <!-- Animated Cracker Burst Vector Header -->
-                        <div class="relative w-16 h-16 mx-auto flex items-center justify-center">
-                            <div class="absolute inset-0 rounded-full bg-amber-200/50 animate-ping"></div>
-                            <svg class="w-12 h-12 text-amber-600 firework-spark" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L14.5 8.5L21 11L14.5 13.5L12 20L9.5 13.5L3 11L9.5 8.5L12 2Z" />
-                            </svg>
-                        </div>
-
-                        <p class="font-handwriting text-lg sm:text-xl font-bold text-slate-800 leading-relaxed italic">
-                            "Badi mushkil se milte hain ye kirdar,<br>
-                            Jo har jeet ko dil se banate hain tyohar!<br><br>
-                            Aap jaisa kaptaan ho hume mile jinki<br>
-                            vajah se hum khush hain har ek lamhe me,<br><br>
-                            <span class="text-emerald-900 font-extrabold underline decoration-amber-400">kaptaan ho aap jinke vo bhi humesha khush hi rahe!</span>"
+                        <p style="color: #451a03; font-size: 13px; line-height: 1.6;">
+                            May you continue to lead with wisdom, set new benchmarks, and crush every milestone with flying colors! 👊✨
                         </p>
 
-                        <!-- Sparkle Cracker Footer -->
-                        <div class="flex justify-center gap-2 text-xl firework-spark pt-1">
-                            <span>🎆</span><span>✨</span><span>🎉</span>
+                        <div style="margin-top: 15px; background: #ffffff; border: 1.5px solid #f59e0b; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(217, 119, 6, 0.15);">
+                            <span style="font-size: 15px; font-weight: bold; color: #b45309;">
+                                CHEERS TO YOUR SUCCESS, SIR! 💪🚀👑
+                            </span>
                         </div>
                     </div>
 
-                    <div class="flex items-center justify-between gap-3 pt-1">
-                        <button onclick="prevPage()" class="flex-1 py-2.5 px-4 rounded-xl border border-slate-200 text-slate-600 font-bold text-xs hover:bg-slate-50 transition">
-                            <i class="fa-solid fa-arrow-left mr-1"></i> Back
-                        </button>
-                        <button onclick="nextPage()" class="flex-1 py-2.5 px-4 rounded-xl bg-emerald-800 text-white font-bold text-xs hover:bg-emerald-900 shadow transition">
-                            Final Page <i class="fa-solid fa-arrow-right ml-1"></i>
-                        </button>
+                    <div style="font-size: 11px; color: #b45309; letter-spacing: 1px; font-weight: 600; text-transform: uppercase;">
+                        Always Inspired By Your Guidance 🎯
                     </div>
                 </div>
 
-                <!-- ================= PAGE 4: FUNNY DRS PARTY REQUEST ================= -->
-                <div id="page4" class="page flex-col justify-between text-center h-full space-y-4 my-auto">
-                    
-                    <div class="flex items-center justify-center gap-2 text-rose-600 font-extrabold text-xs uppercase tracking-wider">
-                        <span>🏏 Umpire's Decision... & YOURS? 🏏</span>
-                    </div>
-
-                    <div class="my-auto space-y-3 bg-rose-50/70 p-4 rounded-2xl border border-rose-200/80 text-xs sm:text-sm text-slate-700 leading-relaxed">
-                        
-                        <!-- Animated Umpire Vector -->
-                        <div class="w-16 h-16 mx-auto bg-white rounded-full border-2 border-rose-300 flex items-center justify-center shadow-sm">
-                            <svg class="w-10 h-10 text-slate-800" viewBox="0 0 24 24" fill="currentColor">
-                                <circle cx="12" cy="6" r="3" />
-                                <path d="M12 10c-3 0-6 1.5-6 4v6h12v-6c0-2.5-3-4-6-4z" />
-                            </svg>
-                        </div>
-
-                        <div class="p-2.5 bg-rose-600 text-white text-xs font-extrabold rounded-xl uppercase tracking-wider shadow">
-                            REFERRAL REVIEW: Party Pending
-                        </div>
-
-                        <p class="font-bold text-slate-900 text-sm sm:text-base font-outfit pt-1">
-                            Sir, baki sab toh theek hai... par 16th October ki Party kab mil rahi hai? 🍰🍕
-                        </p>
-
-                        <div class="p-3 bg-emerald-100 rounded-xl text-emerald-900 font-extrabold text-sm border border-emerald-300 shadow-sm">
-                            OUT -> PARTYYYY!! 🎉🥳
-                        </div>
-                    </div>
-
-                    <!-- Final Action Button -->
-                    <div class="space-y-2 pt-1">
-                        <button onclick="triggerCelebration()" class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-emerald-700 to-amber-600 hover:from-emerald-800 hover:to-amber-700 text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg transition transform active:scale-95 flex items-center justify-center gap-2">
-                            <span>GIVE US A TREAT, SIR! 🥳</span>
-                        </button>
-
-                        <div class="flex items-center justify-between gap-3 pt-2">
-                            <button onclick="prevPage()" class="flex-1 py-2 px-3 rounded-xl border border-slate-200 text-slate-600 font-bold text-xs hover:bg-slate-50 transition">
-                                <i class="fa-solid fa-arrow-left mr-1"></i> Back
-                            </button>
-                            <button onclick="goToPage(1)" class="flex-1 py-2 px-3 rounded-xl bg-slate-100 text-slate-700 font-bold text-xs hover:bg-slate-200 transition">
-                                First Page <i class="fa-solid fa-rotate-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
+                    <span class="page-num" style="color: #b45309;">Page 4</span>
+                    <span class="page-num" style="color: #b45309;">BACK COVER</span>
                 </div>
-
             </div>
+
         </div>
 
-        <!-- Page Indicator Dots -->
-        <div class="flex items-center justify-center gap-2 pt-1">
-            <button onclick="goToPage(1)" id="dot1" class="w-2.5 h-2.5 rounded-full bg-emerald-800 transition-all"></button>
-            <button onclick="goToPage(2)" id="dot2" class="w-2.5 h-2.5 rounded-full bg-slate-300 transition-all"></button>
-            <button onclick="goToPage(3)" id="dot3" class="w-2.5 h-2.5 rounded-full bg-slate-300 transition-all"></button>
-            <button onclick="goToPage(4)" id="dot4" class="w-2.5 h-2.5 rounded-full bg-slate-300 transition-all"></button>
-        </div>
+    </div>
 
-    </main>
-
-    <!-- JavaScript Logic -->
     <script>
-        let currentPage = 1;
-        const totalPages = 4;
-        const bgAudio = document.getElementById('bgAudio');
-        let isAudioPlaying = false;
+        let currentSpread = 1;
 
-        // SVG Vector background floating elements
-        const svgTemplates = [
-            `<svg class="w-7 h-7 text-amber-500" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>`,
-            `<svg class="w-7 h-7 text-rose-400" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="6" r="3"/><circle cx="18" cy="12" r="3"/><circle cx="12" cy="18" r="3"/><circle cx="6" cy="12" r="3"/></svg>`,
-            `<svg class="w-7 h-7 text-emerald-600" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a1 1 0 011 1v2h2a2 2 0 012 2v3H7V7a2 2 0 012-2h2V3a1 1 0 011-1zM5 12h14v8a2 2 0 01-2 2H7a2 2 0 01-2-2v-8z"/></svg>`,
-            `<svg class="w-6 h-6 text-indigo-400" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="5" r="2"/><rect x="12" y="10" width="4" height="8" rx="1" transform="rotate(25 14 14)"/><path d="M18 4l2 6-4-2z"/></svg>`,
-            `<svg class="w-8 h-8 text-emerald-800" viewBox="0 0 100 100"><circle cx="50" cy="50" r="32" fill="#fde047"/><circle cx="40" cy="46" r="4" fill="#0f172a"/><circle cx="60" cy="46" r="4" fill="#0f172a"/><path d="M 38 58 Q 50 70 62 58" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/><path d="M 18 46 C 18 18, 82 18, 82 46 Z" fill="#1e3a8a"/></svg>`
-        ];
+        const sheet1 = document.getElementById('sheet1');
+        const sheet2 = document.getElementById('sheet2');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageIndicator = document.getElementById('pageIndicator');
 
-        const floatingContainer = document.getElementById('floatingContainer');
-
-        function generateFloatingElements() {
-            for (let i = 0; i < 20; i++) {
-                const item = document.createElement('div');
-                item.className = 'float-item';
-                item.innerHTML = svgTemplates[i % svgTemplates.length];
-                item.style.left = `${Math.random() * 92}%`;
-                item.style.animationDelay = `${Math.random() * 12}s`;
-                item.style.animationDuration = `${11 + Math.random() * 8}s`;
-                floatingContainer.appendChild(item);
+        function updateBookState() {
+            if (currentSpread === 1) {
+                sheet1.classList.remove('flipped');
+                sheet2.classList.remove('flipped');
+                sheet1.style.zIndex = 2;
+                sheet2.style.zIndex = 1;
+                
+                prevBtn.disabled = true;
+                nextBtn.disabled = false;
+                pageIndicator.innerText = "Page 1 of 4";
+            } 
+            else if (currentSpread === 2) {
+                sheet1.classList.add('flipped');
+                sheet2.classList.remove('flipped');
+                sheet1.style.zIndex = 1;
+                sheet2.style.zIndex = 2;
+                
+                prevBtn.disabled = false;
+                nextBtn.disabled = false;
+                pageIndicator.innerText = "Pages 2 & 3 of 4";
+            } 
+            else if (currentSpread === 3) {
+                sheet1.classList.add('flipped');
+                sheet2.classList.add('flipped');
+                sheet1.style.zIndex = 1;
+                sheet2.style.zIndex = 2;
+                
+                prevBtn.disabled = false;
+                nextBtn.disabled = true;
+                pageIndicator.innerText = "Page 4 of 4";
             }
-        }
-        generateFloatingElements();
-
-        // Audio Handler
-        function startCardAndMusic() {
-            playBackgroundMusic();
-            nextPage();
-        }
-
-        function playBackgroundMusic() {
-            if (!bgAudio) return;
-            bgAudio.play().then(() => {
-                isAudioPlaying = true;
-                updateAudioUI(true);
-            }).catch(() => {
-                triggerCelebrationSynth();
-                updateAudioUI(false);
-            });
-        }
-
-        function toggleAudio() {
-            if (!bgAudio) return;
-            if (isAudioPlaying) {
-                bgAudio.pause();
-                isAudioPlaying = false;
-                updateAudioUI(false);
-            } else {
-                bgAudio.play().then(() => {
-                    isAudioPlaying = true;
-                    updateAudioUI(true);
-                }).catch(() => {
-                    triggerCelebrationSynth();
-                });
-            }
-        }
-
-        function updateAudioUI(playing) {
-            const musicIcon = document.getElementById('musicIcon');
-            const musicStatusText = document.getElementById('musicStatusText');
-            if (playing) {
-                musicIcon.className = "fa-solid fa-volume-high text-emerald-700 animate-pulse";
-                musicStatusText.innerText = "Audio On";
-            } else {
-                musicIcon.className = "fa-solid fa-volume-xmark text-slate-500";
-                musicStatusText.innerText = "Muted";
-            }
-        }
-
-        // Page Navigation
-        function updatePageDisplay() {
-            for (let i = 1; i <= totalPages; i++) {
-                const pageEl = document.getElementById(`page${i}`);
-                const dotEl = document.getElementById(`dot${i}`);
-                if (i === currentPage) {
-                    pageEl.classList.add('active');
-                    dotEl.className = 'w-6 h-2.5 rounded-full bg-emerald-800 transition-all';
-                } else {
-                    pageEl.classList.remove('active');
-                    dotEl.className = 'w-2.5 h-2.5 rounded-full bg-slate-300 transition-all';
-                }
-            }
-            document.getElementById('pageIndicator').innerText = `Page ${currentPage} of ${totalPages}`;
         }
 
         function nextPage() {
-            if (currentPage < totalPages) {
-                currentPage++;
-                updatePageDisplay();
-                if (currentPage === 4) triggerSoftConfetti();
+            if (currentSpread < 3) {
+                currentSpread++;
+                updateBookState();
             }
         }
 
         function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                updatePageDisplay();
+            if (currentSpread > 1) {
+                currentSpread--;
+                updateBookState();
             }
-        }
-
-        function goToPage(pageNumber) {
-            currentPage = pageNumber;
-            updatePageDisplay();
-        }
-
-        // Web Audio Synth Fallback Sound
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        let audioCtx;
-
-        function triggerCelebrationSynth() {
-            if (!audioCtx) audioCtx = new AudioContext();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-
-            try {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-                const now = audioCtx.currentTime;
-
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(523.25, now);       // C5
-                osc.frequency.setValueAtTime(659.25, now + 0.12); // E5
-                osc.frequency.setValueAtTime(783.99, now + 0.24); // G5
-                osc.frequency.setValueAtTime(1046.50, now + 0.36);// C6
-
-                gain.gain.setValueAtTime(0.2, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.7);
-
-                osc.connect(gain);
-                gain.connect(audioCtx.destination);
-
-                osc.start(now);
-                osc.stop(now + 0.7);
-            } catch (e) {}
-        }
-
-        function triggerCelebration() {
-            triggerCelebrationSynth();
-            confetti({
-                particleCount: 130,
-                spread: 110,
-                origin: { y: 0.6 },
-                colors: ['#166534', '#d97706', '#e11d48', '#fbbf24', '#2563eb']
-            });
-        }
-
-        function triggerSoftConfetti() {
-            confetti({
-                particleCount: 50,
-                spread: 60,
-                origin: { y: 0.6 },
-                colors: ['#166534', '#d97706', '#818cf8']
-            });
         }
     </script>
 </body>
