@@ -1,413 +1,1013 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Tezal Sir!</title>
+    <title>Happy Birthday, Rahul Prince Shah Sir — A Royal Tribute</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Luxury Editorial Typography: Cinzel, Cormorant Garamond & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti CDN for High-FPS Fireworks & Gold Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
     <style>
+        :root {
+            --obsidian: #05070e;
+            --obsidian-card: rgba(11, 15, 29, 0.72);
+            --royal-gold: #d4af37;
+            --champagne: #f6e7c1;
+            --amber-gold: #b8891e;
+        }
+
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: #0f172a;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            color: #1e293b;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--obsidian);
+            color: #f8fafc;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
 
-        .controls {
-            margin-bottom: 20px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            z-index: 10;
+        .font-display {
+            font-family: 'Cinzel', serif;
         }
 
-        .btn {
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-            color: #ffffff;
-            border: none;
-            padding: 12px 24px;
-            font-size: 14px;
-            font-weight: 700;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(3, 105, 161, 0.4);
+        .font-editorial {
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(3, 105, 161, 0.6);
+        /* Animated Aurora & Spotlight Obsidian Backdrop */
+        .obsidian-aurora {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.14) 0%, transparent 45%),
+                radial-gradient(circle at 85% 25%, rgba(30, 58, 138, 0.22) 0%, transparent 50%),
+                radial-gradient(circle at 50% 85%, rgba(184, 137, 30, 0.14) 0%, transparent 50%),
+                #05070e;
+            pointer-events: none;
         }
 
-        .btn:disabled {
-            background: #334155;
-            box-shadow: none;
-            cursor: not-allowed;
-            opacity: 0.5;
-            transform: none;
+        .aurora-orb {
+            position: fixed;
+            border-radius: 9999px;
+            filter: blur(90px);
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 0;
+            animation: driftAurora 16s ease-in-out infinite alternate;
         }
 
-        .page-indicator {
-            font-size: 14px;
-            color: #cbd5e1;
-            font-weight: 600;
-            background: rgba(255,255,255,0.08);
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
+        @keyframes driftAurora {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, -30px) scale(1.15); }
         }
 
-        .book-container {
-            width: 420px;
-            height: 580px;
+        /* Metallic Shimmering Royal Gold Gradient Text */
+        .gold-foil-text {
+            background: linear-gradient(
+                115deg,
+                #b8891e 0%,
+                #f6e7c1 22%,
+                #d4af37 45%,
+                #ffffff 52%,
+                #d4af37 62%,
+                #f6e7c1 82%,
+                #b8891e 100%
+            );
+            background-size: 240% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: foilShimmer 5s linear infinite;
+        }
+
+        @keyframes foilShimmer {
+            to { background-position: 240% center; }
+        }
+
+        /* Glassmorphism Luxury Card with Shimmering Gold Hairline */
+        .luxury-glass {
+            background: var(--obsidian-card);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            box-shadow:
+                0 25px 60px -15px rgba(0, 0, 0, 0.85),
+                inset 0 1px 0 0 rgba(246, 231, 193, 0.18);
             position: relative;
-            perspective: 1500px;
         }
 
-        .card-page {
-            width: 100%;
-            height: 100%;
+        /* 3D Tilt Card Physics */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+            will-change: transform;
+        }
+
+        .tilt-card:hover {
+            border-color: rgba(212, 175, 55, 0.65);
+            box-shadow:
+                0 30px 65px -12px rgba(0, 0, 0, 0.9),
+                0 0 30px rgba(212, 175, 55, 0.15);
+        }
+
+        .tilt-inner {
+            transform: translateZ(24px);
+        }
+
+        /* Grand Velvet Split Curtain Overlay */
+        #curtain-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+        }
+
+        #curtain-overlay.hidden-overlay {
+            pointer-events: none;
+        }
+
+        .curtain-panel {
             position: absolute;
             top: 0;
+            bottom: 0;
+            width: 50.5%;
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.35) 0px,
+                    rgba(255, 255, 255, 0.02) 18px,
+                    rgba(0, 0, 0, 0.45) 36px
+                ),
+                radial-gradient(circle at center, #0d1224 0%, #04060c 100%);
+            transition: transform 1.25s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 1;
+        }
+
+        .curtain-left {
             left: 0;
-            transform-origin: left center;
-            transform-style: preserve-3d;
-            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-            border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            cursor: pointer;
+            border-right: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 15px 0 45px rgba(0, 0, 0, 0.9);
         }
 
-        .page-face {
+        .curtain-right {
+            right: 0;
+            border-left: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: -15px 0 45px rgba(0, 0, 0, 0.9);
+        }
+
+        #curtain-overlay.opened .curtain-left {
+            transform: translateX(-102%);
+        }
+
+        #curtain-overlay.opened .curtain-right {
+            transform: translateX(102%);
+        }
+
+        #curtain-center-card {
+            position: relative;
+            z-index: 2;
+            transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        #curtain-overlay.opened #curtain-center-card {
+            opacity: 0;
+            transform: scale(0.92) translateY(-16px);
+            pointer-events: none;
+        }
+
+        /* Magnetic Glowing Gold Button */
+        .btn-royal-gold {
+            background: linear-gradient(135deg, #f6e7c1 0%, #d4af37 48%, #9e7416 100%);
+            color: #05070e;
+            box-shadow:
+                0 10px 30px rgba(212, 175, 55, 0.35),
+                inset 0 1px 1px rgba(255, 255, 255, 0.7);
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+        }
+
+        .btn-royal-gold:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow:
+                0 16px 40px rgba(212, 175, 55, 0.55),
+                inset 0 1px 2px rgba(255, 255, 255, 0.9);
+        }
+
+        .btn-royal-gold:active {
+            transform: scale(0.97);
+        }
+
+        /* Embossed Gold Wax Seal Emblem */
+        .wax-seal {
+            background: radial-gradient(circle at 32% 30%, #f6e7c1 0%, #d4af37 42%, #8a6310 88%, #5c4007 100%);
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.7),
+                inset 0 2px 5px rgba(255, 255, 255, 0.6),
+                inset 0 -3px 6px rgba(45, 30, 3, 0.8);
+        }
+
+        /* Realistic Candle Flame & Radial Ambient Glow */
+        .candle-halo {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 16px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
+            top: -36px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.35) 0%, rgba(212, 175, 55, 0.1) 45%, transparent 72%);
+            pointer-events: none;
+            animation: pulseHalo 2s ease-in-out infinite alternate;
+            transition: opacity 0.4s ease;
         }
 
-        .page-back {
-            transform: rotateY(180deg);
+        @keyframes pulseHalo {
+            0% { transform: translateX(-50%) scale(0.92); opacity: 0.75; }
+            100% { transform: translateX(-50%) scale(1.12); opacity: 1; }
         }
 
-        .card-page.flipped {
-            transform: rotateY(-180deg);
+        .candle-halo.extinguished {
+            opacity: 0;
+            animation: none;
         }
 
-        /* LIGHT BACKGROUNDS */
-        .bg-p1-light {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
-            border: 2px solid #7dd3fc;
+        .flame-core {
+            width: 20px;
+            height: 34px;
+            background: radial-gradient(ellipse at 50% 78%, #ffffff 12%, #fef08a 42%, #f59e0b 78%, rgba(234, 88, 12, 0) 100%);
+            border-radius: 50% 50% 38% 38% / 68% 68% 32% 32%;
+            box-shadow:
+                0 0 18px #fde047,
+                0 0 36px #f59e0b,
+                0 0 60px rgba(245, 158, 11, 0.55);
+            transform-origin: bottom center;
+            animation: flameDance 1.15s infinite alternate ease-in-out;
+            transition: opacity 0.25s ease, transform 0.25s ease;
         }
 
-        .bg-p2-3 {
-            background: #fffdfa;
-            background-image: 
-                radial-gradient(#cbd5e1 1.2px, transparent 1.2px),
-                radial-gradient(#cbd5e1 1.2px, #fffdfa 1.2px);
-            background-size: 24px 24px;
-            background-position: 0 0, 12px 12px;
-            color: #0f172a;
-            border: 1px solid #e2e8f0;
+        @keyframes flameDance {
+            0% { transform: scale(1) rotate(-2.5deg); }
+            35% { transform: scale(1.06, 0.95) rotate(2deg); }
+            70% { transform: scale(0.95, 1.06) rotate(-1.5deg); }
+            100% { transform: scale(1.03) rotate(2.5deg); }
         }
 
-        .bg-p4-light {
-            background: linear-gradient(135deg, #fefce8 0%, #fef9c3 50%, #fef08a 100%);
-            border: 2px solid #fde047;
-            color: #1e293b;
+        .flame-core.extinguished {
+            opacity: 0;
+            transform: scale(0.1) translateY(-12px);
+            animation: none;
         }
 
-        .inner-border {
-            border: 2px dashed #0284c7;
-            height: 100%;
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.5);
+        /* Wispy Smoke Particles */
+        .smoke-wisp {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(226, 232, 240, 0.65);
+            filter: blur(4px);
+            opacity: 0;
+            pointer-events: none;
         }
 
-        .light-amber-border {
-            border: 2px dashed #d97706;
-            height: 100%;
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.5);
+        .smoke-wisp.rising {
+            animation: wispFloat 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .deco-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-left: 4px solid #0284c7;
-            padding: 14px;
-            border-radius: 8px;
-            margin: 12px 0;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            text-align: left;
+        .smoke-wisp.wisp-2.rising {
+            animation-delay: 0.22s;
         }
 
-        .tag-badge {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
+        @keyframes wispFloat {
+            0% {
+                opacity: 0.85;
+                transform: translate(-50%, 0) scale(0.7);
+            }
+            45% {
+                opacity: 0.5;
+                transform: translate(-30%, -36px) scale(1.6);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-75%, -82px) scale(2.6);
+            }
         }
 
-        h1 { font-size: 25px; line-height: 1.3; font-weight: 800; color: #0c4a6e; }
-        h2 { font-size: 19px; color: #0f172a; margin-bottom: 6px; font-weight: 700; }
-        p { font-size: 13.5px; line-height: 1.6; color: #334155; margin-bottom: 10px; }
-
-        .name-title {
-            color: #0284c7;
-            font-weight: 800;
-            font-size: 26px;
-            display: block;
-            margin-top: 4px;
+        /* Scroll Reveal Utility */
+        .reveal-block {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .page-num {
-            font-size: 11px;
-            font-weight: bold;
-            color: #94a3b8;
-        }
-
-        .signature-area {
-            margin-top: 15px;
-            border-top: 1px solid #cbd5e1;
-            padding-top: 10px;
-            text-align: left;
+        .reveal-block.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body>
+<body class="selection:bg-[#d4af37] selection:text-[#05070e]">
 
-    <div class="controls">
-        <button class="btn" id="prevBtn" onclick="prevPage()" disabled>&larr; Previous</button>
-        <span class="page-indicator" id="pageIndicator">Page 1 of 4</span>
-        <button class="btn" id="nextBtn" onclick="nextPage()">Next &rarr;</button>
+    <!-- Ambient Obsidian Aurora & Drifting Orbs -->
+    <div class="obsidian-aurora"></div>
+    <div class="aurora-orb w-80 h-80 bg-[#d4af37]/20 top-10 -left-20"></div>
+    <div class="aurora-orb w-96 h-96 bg-blue-900/30 bottom-10 -right-20" style="animation-delay: -6s;"></div>
+
+    <!-- 60FPS Gold Dust Particle Canvas -->
+    <canvas id="gold-dust-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- =========================================================================
+         1. GRAND VELVET & GOLD CURTAIN INTRO OVERLAY
+         ========================================================================= -->
+    <div id="curtain-overlay" aria-modal="true" role="dialog">
+        <div class="curtain-panel curtain-left"></div>
+        <div class="curtain-panel curtain-right"></div>
+
+        <div id="curtain-center-card" class="luxury-glass max-w-md w-[92%] rounded-3xl p-8 sm:p-11 text-center mx-auto">
+            <!-- Corner Hairline Brackets -->
+            <div class="absolute top-3 left-3 w-7 h-7 border-t border-l border-[#d4af37]/60 rounded-tl-xl"></div>
+            <div class="absolute top-3 right-3 w-7 h-7 border-t border-r border-[#d4af37]/60 rounded-tr-xl"></div>
+            <div class="absolute bottom-3 left-3 w-7 h-7 border-b border-l border-[#d4af37]/60 rounded-bl-xl"></div>
+            <div class="absolute bottom-3 right-3 w-7 h-7 border-b border-r border-[#d4af37]/60 rounded-br-xl"></div>
+
+            <!-- Glowing Monogram Crest ('RPS') -->
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full p-[2px] bg-gradient-to-b from-[#f6e7c1] via-[#d4af37] to-[#7c580b] shadow-[0_0_35px_rgba(212,175,55,0.4)]">
+                <div class="w-full h-full rounded-full bg-[#05070e] flex flex-col items-center justify-center border border-[#d4af37]/40">
+                    <span class="font-display text-xl font-bold tracking-[0.18em] gold-foil-text pl-1">RPS</span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] text-[#f6e7c1]/70 mt-0.5">SIR</span>
+                </div>
+            </div>
+
+            <p class="text-[11px] uppercase tracking-[0.28em] text-[#d4af37] font-semibold mb-3">
+                A Special Tribute For
+            </p>
+            <h1 class="font-display text-2xl sm:text-3xl font-bold text-white leading-snug mb-3">
+                Rahul Prince Shah Sir
+            </h1>
+            <p class="text-slate-300/90 text-xs sm:text-sm leading-relaxed mb-8 font-light">
+                Dedicated with the utmost respect and gratitude to an extraordinary leader, mentor, and inspiration.
+            </p>
+
+            <button id="open-tribute-btn" class="btn-royal-gold w-full py-4 px-6 rounded-2xl font-bold text-sm sm:text-base tracking-wider uppercase flex items-center justify-center gap-2.5 cursor-pointer">
+                <span>Open Your Birthday Tribute</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+            </button>
+        </div>
     </div>
 
-    <div class="book-container">
-        
-        <!-- SHEET 1 -->
-        <div class="card-page" id="sheet1" style="z-index: 2;" onclick="nextPage()">
-            
-            <!-- PAGE 1: FRONT COVER -->
-            <div class="page-face bg-p1-light">
-                <div class="inner-border">
-                    <div style="font-size: 42px; margin-top: 10px;">🌟👑🎂</div>
-                    
+    <!-- =========================================================================
+         MAIN EDITORIAL TRIBUTE EXPERIENCE
+         ========================================================================= -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-20 pb-28">
+
+        <!-- =====================================================================
+             2. CINEMATIC HERO SECTION
+             ===================================================================== -->
+        <header class="reveal-block text-center mb-16 sm:mb-24">
+            <!-- Floating Luxury Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/35 backdrop-blur-md mb-7 shadow-[0_0_25px_rgba(212,175,55,0.15)]">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#d4af37] animate-ping"></span>
+                <span class="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.26em] text-[#f6e7c1]">
+                    Celebrating Excellence &amp; Leadership
+                </span>
+            </div>
+
+            <!-- Massive Shimmering Metallic-Gold Display Heading -->
+            <h1 class="font-display font-extrabold tracking-tight leading-[1.12] mb-6" style="font-size: clamp(2.15rem, 5.6vw, 4.35rem);">
+                <span class="block text-white/95 font-editorial italic font-semibold mb-1" style="font-size: clamp(1.5rem, 3.2vw, 2.45rem);">
+                    Happy Birthday,
+                </span>
+                <span class="gold-foil-text drop-shadow-[0_6px_28px_rgba(212,175,55,0.25)]">
+                    Rahul Prince Shah Sir
+                </span>
+            </h1>
+
+            <!-- Poetic Subtitle -->
+            <p class="text-slate-300/90 max-w-2xl mx-auto font-light leading-relaxed mb-9 px-2" style="font-size: clamp(0.95rem, 1.8vw, 1.18rem);">
+                Honoring a remarkable mentor whose clarity of vision, quiet strength, and unwavering guidance illuminate the path for everyone privileged to learn from you.
+            </p>
+
+            <!-- Interactive Fireworks CTA -->
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <button id="hero-fireworks-btn" class="btn-royal-gold px-7 py-3.5 rounded-full font-bold text-xs sm:text-sm uppercase tracking-[0.16em] inline-flex items-center gap-2.5 cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                    <span>Launch Celebration Fireworks</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- =====================================================================
+             3. 3D TILT TRIBUTE CARDS (WHY WE ADMIRE YOU, SIR)
+             ===================================================================== -->
+        <section class="reveal-block mb-16 sm:mb-24" aria-labelledby="admire-heading">
+            <div class="text-center mb-10">
+                <span class="text-[11px] uppercase tracking-[0.28em] text-[#d4af37] font-semibold">Hallmarks of Distinction</span>
+                <h2 id="admire-heading" class="font-display text-2xl sm:text-3xl font-bold text-white mt-2">
+                    Why We Admire You, Sir
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: Visionary Leadership -->
+                <article class="luxury-glass tilt-card rounded-3xl p-7 sm:p-8 flex flex-col justify-between">
+                    <div class="tilt-inner">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#d4af37]/25 to-[#d4af37]/5 border border-[#d4af37]/40 flex items-center justify-center text-[#f6e7c1] mb-6 shadow-inner">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-lg sm:text-xl font-bold text-[#f6e7c1] mb-3">
+                            Seamless Team &amp; Workflow Mastery
+                        </h3>
+                        <p class="text-slate-300/90 text-sm leading-relaxed font-light">
+                            The way you handle the team and manage the entire workflow is truly commendable—turning complex challenges into smooth, purposeful execution.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-[#d4af37]/15 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-[#d4af37]/80">
+                        <span>01</span>
+                        <span>Leadership</span>
+                    </div>
+                </article>
+
+                <!-- Card 2: Inspiring Mentorship -->
+                <article class="luxury-glass tilt-card rounded-3xl p-7 sm:p-8 flex flex-col justify-between">
+                    <div class="tilt-inner">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#d4af37]/25 to-[#d4af37]/5 border border-[#d4af37]/40 flex items-center justify-center text-[#f6e7c1] mb-6 shadow-inner">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-lg sm:text-xl font-bold text-[#f6e7c1] mb-3">
+                            Inspiring Mentorship
+                        </h3>
+                        <p class="text-slate-300/90 text-sm leading-relaxed font-light">
+                            Always encouraging growth, patience, and bringing out the best in everyone through thoughtful counsel and genuine support.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-[#d4af37]/15 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-[#d4af37]/80">
+                        <span>02</span>
+                        <span>Guidance</span>
+                    </div>
+                </article>
+
+                <!-- Card 3: Unmatched Integrity -->
+                <article class="luxury-glass tilt-card rounded-3xl p-7 sm:p-8 flex flex-col justify-between">
+                    <div class="tilt-inner">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#d4af37]/25 to-[#d4af37]/5 border border-[#d4af37]/40 flex items-center justify-center text-[#f6e7c1] mb-6 shadow-inner">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-display text-lg sm:text-xl font-bold text-[#f6e7c1] mb-3">
+                            Unmatched Integrity
+                        </h3>
+                        <p class="text-slate-300/90 text-sm leading-relaxed font-light">
+                            Setting the highest standard of professionalism and kindness—earning deep admiration and lasting respect at every step.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-[#d4af37]/15 flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-[#d4af37]/80">
+                        <span>03</span>
+                        <span>Character</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             4. HEARTFELT RESPECTFUL TRIBUTE LETTER (EDITORIAL GLASS & WAX SEAL)
+             ===================================================================== -->
+        <section class="reveal-block mb-16 sm:mb-24" aria-labelledby="letter-heading">
+            <div class="luxury-glass rounded-[2rem] p-7 sm:p-12 md:p-14 relative overflow-hidden">
+                <!-- Subtle Editorial Watermark -->
+                <div class="absolute -top-6 right-6 font-editorial italic text-[140px] sm:text-[180px] text-[#d4af37]/[0.06] select-none pointer-events-none leading-none">
+                    “
+                </div>
+
+                <!-- Header Row with Embossed Gold Wax Seal -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 mb-8 border-b border-[#d4af37]/20">
                     <div>
-                        <span style="letter-spacing: 2px; font-size: 11px; color: #0369a1; text-transform: uppercase; font-weight: 700; background: rgba(255,255,255,0.7); padding: 3px 8px; border-radius: 10px;">To An Elder Brother & Guide</span>
-                        <h1 style="margin: 10px 0;">Happy Birthday!</h1>
-                        
-                        <div style="background: #ffffff; padding: 10px 20px; border-radius: 20px; display: inline-block; margin-top: 5px; box-shadow: 0 4px 10px rgba(2,132,199,0.15);">
-                            <span class="name-title">Tezal Sir 🎈</span>
+                        <span class="text-[11px] uppercase tracking-[0.28em] text-[#d4af37] font-semibold">Executive Tribute</span>
+                        <h2 id="letter-heading" class="font-editorial italic text-3xl sm:text-4xl font-bold text-[#f6e7c1] mt-1">
+                            Respected Rahul Prince Shah Sir,
+                        </h2>
+                    </div>
+
+                    <!-- Embossed Gold Wax Seal ('RPS') -->
+                    <div class="wax-seal w-20 h-20 rounded-full flex items-center justify-center shrink-0 self-start sm:self-auto border-2 border-[#f6e7c1]/50">
+                        <div class="w-16 h-16 rounded-full border border-[#5c4007]/45 flex flex-col items-center justify-center">
+                            <span class="font-display text-sm font-extrabold tracking-[0.14em] text-[#2b1d03] pl-0.5">RPS</span>
+                            <span class="text-[8px] uppercase tracking-[0.2em] font-bold text-[#3f2b05]">SEAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Editorial Letter Body -->
+                <div class="space-y-5 text-slate-200/95 text-sm sm:text-base md:text-[17px] leading-[1.85] font-light">
+                    <p>
+                        On the occasion of your birthday, we wish to express our deepest respect and heartfelt appreciation for the profound impact you have had as a senior, mentor, and guiding pillar.
+                    </p>
+                    <p>
+                        The way you handle the team and manage the workflow is truly commendable—it sets a remarkable standard for all of us. Your composure under pressure, clarity of direction, and constant encouragement inspire us to aim higher every single day.
+                    </p>
+                    <p>
+                        As you celebrate another remarkable year, we pray that you are blessed with boundless health, enduring happiness, peace of mind, and monumental milestones ahead. May every vision you pursue flourish with extraordinary success.
+                    </p>
+                </div>
+
+                <!-- Signature Sign-off -->
+                <div class="mt-9 pt-6 border-t border-[#d4af37]/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <p class="font-editorial italic text-xl sm:text-2xl text-[#f6e7c1]">
+                            Warmest Birthday Wishes &amp; Highest Regards,
+                        </p>
+                        <p class="text-xs uppercase tracking-[0.22em] text-[#d4af37] mt-1">
+                            With Deepest Respect Always
+                        </p>
+                    </div>
+                    <span class="font-display text-xs tracking-[0.25em] text-slate-400 uppercase">
+                        Happy Birthday, Sir
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             5. INTERACTIVE LUXURY BIRTHDAY CAKE & WISH RITUAL
+             ===================================================================== -->
+        <section class="reveal-block" aria-labelledby="cake-heading">
+            <div class="luxury-glass rounded-[2rem] p-7 sm:p-12 text-center relative overflow-hidden">
+                <span class="text-[11px] uppercase tracking-[0.28em] text-[#d4af37] font-semibold">The Birthday Wish Ritual</span>
+                <h2 id="cake-heading" class="font-display text-2xl sm:text-3xl font-bold text-white mt-2 mb-2">
+                    A Royal Toast to Your Year Ahead
+                </h2>
+                <p id="wish-prompt" class="text-[#f6e7c1]/90 text-xs sm:text-sm mb-10">
+                    Make a wish, Rahul Sir — <strong class="text-[#d4af37] underline decoration-[#d4af37]/50 underline-offset-4">Tap the flame to blow out the candle</strong>
+                </p>
+
+                <!-- Multi-Tiered Royal Dark-Chocolate & Gold-Leaf Cake -->
+                <div class="relative mx-auto w-64 sm:w-72 pt-14 pb-2 select-none">
+                    <!-- Interactive Candle Button -->
+                    <button id="candle-trigger" aria-label="Tap the flame to blow out the candle" class="group relative mx-auto flex flex-col items-center focus:outline-none cursor-pointer p-3 -mb-3 z-20">
+                        <!-- Ambient Flame Halo -->
+                        <div id="flame-halo" class="candle-halo"></div>
+                        <!-- Rising Smoke Wisps -->
+                        <span id="smoke-1" class="smoke-wisp"></span>
+                        <span id="smoke-2" class="smoke-wisp wisp-2"></span>
+                        <!-- Flickering Flame -->
+                        <div id="candle-flame" class="flame-core mb-1 group-hover:scale-110"></div>
+                        <!-- Wick -->
+                        <div class="w-[3px] h-3 bg-slate-600 rounded-full"></div>
+                        <!-- Gold-Striped Royal Candle -->
+                        <div class="w-4 h-14 rounded-t-md bg-gradient-to-b from-[#fffbeb] via-[#f6e7c1] to-[#d4af37] border border-[#f6e7c1]/80 shadow-lg relative overflow-hidden">
+                            <div class="w-full h-1.5 bg-[#9e7416]/50 mt-2.5 -rotate-12"></div>
+                            <div class="w-full h-1.5 bg-[#9e7416]/50 mt-2.5 -rotate-12"></div>
+                            <div class="w-full h-1.5 bg-[#9e7416]/50 mt-2.5 -rotate-12"></div>
+                        </div>
+                    </button>
+
+                    <!-- Top Tier: Dark Chocolate Velvet & Gold Leaf -->
+                    <div class="w-40 sm:w-44 h-14 mx-auto rounded-t-2xl bg-gradient-to-r from-[#120b09] via-[#261712] to-[#120b09] border-t-[3px] border-[#d4af37] shadow-xl relative">
+                        <!-- Gold Ganache Drips -->
+                        <div class="flex justify-around px-2">
+                            <div class="w-2.5 h-5 rounded-b-full bg-gradient-to-b from-[#f6e7c1] to-[#d4af37]"></div>
+                            <div class="w-3 h-7 rounded-b-full bg-gradient-to-b from-[#d4af37] to-[#9e7416]"></div>
+                            <div class="w-2.5 h-4 rounded-b-full bg-gradient-to-b from-[#f6e7c1] to-[#d4af37]"></div>
+                            <div class="w-3 h-6 rounded-b-full bg-gradient-to-b from-[#d4af37] to-[#9e7416]"></div>
+                            <div class="w-2.5 h-5 rounded-b-full bg-gradient-to-b from-[#f6e7c1] to-[#d4af37]"></div>
                         </div>
                     </div>
 
-                    <div style="font-size: 12px; color: #0369a1; font-style: italic; font-weight: 600;">
-                        "Wishing an inspiring mentor and elder brother figure a magnificent birthday!" ✨
-                    </div>
-                </div>
-                <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
-                    <span class="page-num" style="color: #0369a1;">COVER</span>
-                    <span class="page-num" style="color: #0369a1;">Page 1</span>
-                </div>
-            </div>
-
-            <!-- PAGE 2: ADMIRATION & RESPECT -->
-            <div class="page-face page-back bg-p2-3">
-                <div>
-                    <span class="tag-badge">👑 Respect For Our Mentor</span>
-                    
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                        <span style="font-size: 26px;">⭐</span>
-                        <h2>Warmest Wishes, Tezal Sir!</h2>
-                    </div>
-
-                    <p>Wishing you a very Happy Birthday, Sir! Having you around as an elder brother figure and mentor makes every day at work truly rewarding.</p>
-
-                    <div class="deco-card">
-                        <strong style="color: #0284c7; font-size: 12px; display: block; margin-bottom: 4px;">
-                            🌟 BROTHERLY & LEADERSHIP MANTRA
-                        </strong>
-                        <p style="font-size: 12.5px; margin-bottom: 0; font-style: italic; color: #1e293b;">
-                            "A true mentor guides you like an elder brother, supports your growth, and always celebrates your wins." 🤝⚡
-                        </p>
-                    </div>
-
-                    <p style="font-size: 13px;">May your year ahead be blessed with excellent health, great joy, and memorable milestones!</p>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                    <span class="page-num">Page 2</span>
-                    <span style="font-size: 16px;">🏆🎉</span>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- SHEET 2 -->
-        <div class="card-page" id="sheet2" style="z-index: 1;">
-            
-            <!-- PAGE 3: AS GUIDING LIGHT IN SALES -->
-            <div class="page-face bg-p2-3" onclick="nextPage()">
-                <div>
-                    <span class="tag-badge" style="background: #e0f2fe; color: #0369a1;">💼 Guiding Light & Mentor</span>
-                    
-                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                        <span style="font-size: 26px;">📊</span>
-                        <h2>Always Leading By Example!</h2>
-                    </div>
-
-                    <p>Working with your guidance is an absolute privilege. Your support, wisdom, and brotherly advice help us tackle every challenge with complete confidence!</p>
-
-                    <div class="deco-card" style="border-left-color: #0284c7; background: #f0f9ff;">
-                        <p style="font-size: 12.5px; color: #0369a1; margin: 0; font-weight: 600;">
-                            📈 Birthday Wish For Tezal Sir:<br>
-                            <em>"May your pipelines always stay full, revenue goals keep soaring, and every endeavor turn into success!"</em> 🚀💼
-                        </p>
-                    </div>
-
-                    <p style="font-size: 13px;">Wishing you massive career growth, remarkable achievements, and happiness in everything you do!</p>
-
-                    <div class="signature-area">
-                        <p style="font-weight: 700; color: #0f172a; margin-bottom: 2px;">With deepest respect & brotherly affection,</p>
-                        <p style="font-size: 12px; color: #64748b; margin: 0;">— Your Dedicated & Grateful Team 🤝🔥</p>
-                    </div>
-                </div>
-
-                <div style="display: flex; justify-content: space-between; align-items: flex-end;">
-                    <span style="font-size: 16px;">✨</span>
-                    <span class="page-num">Page 3</span>
-                </div>
-            </div>
-
-            <!-- PAGE 4: LIGHT BACK COVER -->
-            <div class="page-face page-back bg-p4-light" onclick="prevPage()">
-                <div class="light-amber-border">
-                    <div style="font-size: 40px; margin-top: 10px;">⚡🎯🏆</div>
-
-                    <div>
-                        <span style="background: #fef3c7; color: #b45309; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;">
-                            Future Victories
-                        </span>
-
-                        <h1 style="color: #b45309; font-size: 22px; margin: 12px 0 8px 0;">
-                            Keep Guiding & Rising,<br>Tezal Sir!
-                        </h1>
-                        
-                        <p style="color: #451a03; font-size: 13px; line-height: 1.6;">
-                            May you continue to lead with wisdom, set new benchmarks, and crush every milestone with flying colors! 👊✨
-                        </p>
-
-                        <div style="margin-top: 15px; background: #ffffff; border: 1.5px solid #f59e0b; padding: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(217, 119, 6, 0.15);">
-                            <span style="font-size: 15px; font-weight: bold; color: #b45309;">
-                                CHEERS TO YOUR SUCCESS, SIR! 💪🚀👑
+                    <!-- Middle Tier: Obsidian Truffle & Gold Leaf Band -->
+                    <div class="w-52 sm:w-56 h-16 mx-auto rounded-t-xl bg-gradient-to-r from-[#0b0e17] via-[#172038] to-[#0b0e17] border-t-[3px] border-[#f6e7c1] shadow-2xl relative flex items-center justify-center">
+                        <!-- Gold Leaf Accent Dots -->
+                        <div class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rotate-45 bg-[#d4af37]"></span>
+                            <span class="font-display text-xs sm:text-sm tracking-[0.22em] text-[#f6e7c1] font-bold uppercase">
+                                Rahul Sir
                             </span>
+                            <span class="w-1.5 h-1.5 rotate-45 bg-[#d4af37]"></span>
                         </div>
                     </div>
 
-                    <div style="font-size: 11px; color: #b45309; letter-spacing: 1px; font-weight: 600; text-transform: uppercase;">
-                        Always Inspired By Your Guidance 🎯
+                    <!-- Base Tier: Royal Chocolate & Gold Trim -->
+                    <div class="w-60 sm:w-64 h-12 mx-auto rounded-t-lg bg-gradient-to-r from-[#140d0a] via-[#2a1a14] to-[#140d0a] border-t-2 border-[#d4af37]/80 shadow-2xl flex items-center justify-center">
+                        <div class="w-4/5 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/70 to-transparent"></div>
                     </div>
+
+                    <!-- Luxury Gold Pedestal Platter -->
+                    <div class="w-64 sm:w-72 h-3.5 mx-auto rounded-full bg-gradient-to-r from-[#8a6310] via-[#f6e7c1] to-[#8a6310] shadow-[0_8px_25px_rgba(212,175,55,0.35)]"></div>
+                    <div class="w-24 h-5 mx-auto bg-gradient-to-b from-[#d4af37] to-[#6e4e0a] rounded-b-xl"></div>
                 </div>
 
-                <div style="display: flex; justify-content: space-between; align-items: flex-end; width: 100%;">
-                    <span class="page-num" style="color: #b45309;">Page 4</span>
-                    <span class="page-num" style="color: #b45309;">BACK COVER</span>
+                <!-- Glowing Golden Blessing Banner (Revealed on Candle Blow-Out) -->
+                <div id="blessing-banner" class="hidden mt-8 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#d4af37]/20 via-[#f6e7c1]/15 to-[#d4af37]/20 border border-[#d4af37]/60 shadow-[0_0_45px_rgba(212,175,55,0.2)] transition-all duration-700">
+                    <p class="font-display text-lg sm:text-2xl font-bold gold-foil-text mb-2">
+                        May Every Wish Come True, Rahul Prince Shah Sir!
+                    </p>
+                    <p class="text-slate-200 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed font-light">
+                        Wishing you a year filled with extraordinary achievements, radiant health, and moments of pure joy.
+                    </p>
+                    <button id="relight-candle-btn" class="mt-4 inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-[#f6e7c1] hover:text-[#d4af37] underline underline-offset-4 cursor-pointer">
+                        <span>Relight Candle</span>
+                    </button>
                 </div>
             </div>
+        </section>
 
-        </div>
+        <!-- Classy Editorial Footer -->
+        <footer class="reveal-block text-center mt-16 pt-8 border-t border-[#d4af37]/15">
+            <p class="font-editorial italic text-lg sm:text-xl text-[#f6e7c1]/90">
+                Crafted with utmost respect &amp; warm regards for Rahul Prince Shah Sir
+            </p>
+            <p class="text-[11px] uppercase tracking-[0.25em] text-slate-400 mt-2">
+                Happy Birthday &bull; Wishing You Continued Excellence
+            </p>
+        </footer>
+    </main>
 
+    <!-- =========================================================================
+         6. FLOATING INTERACTIVE ACTION BAR (FIREWORKS & REPLAY ENTRANCE)
+         ========================================================================= -->
+    <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-2.5 p-2 rounded-full luxury-glass shadow-2xl">
+        <button id="float-fireworks-btn" title="Launch Celebration Fireworks" class="btn-royal-gold px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+            <span>Fireworks</span>
+        </button>
+
+        <button id="replay-intro-btn" title="Replay Curtain Entrance" class="px-3.5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-[#f6e7c1] hover:bg-[#d4af37]/15 border border-[#d4af37]/30 transition-colors flex items-center gap-1.5 cursor-pointer">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span class="hidden sm:inline">Replay</span>
+        </button>
     </div>
 
+    <!-- =========================================================================
+         EMBEDDED JAVASCRIPT: Web Audio Synth, Gold Dust Canvas, 3D Tilt & Fireworks
+         ========================================================================= -->
     <script>
-        let currentSpread = 1;
+        document.addEventListener('DOMContentLoaded', () => {
+            const curtainOverlay = document.getElementById('curtain-overlay');
+            const openTributeBtn = document.getElementById('open-tribute-btn');
+            const heroFireworksBtn = document.getElementById('hero-fireworks-btn');
+            const floatFireworksBtn = document.getElementById('float-fireworks-btn');
+            const replayIntroBtn = document.getElementById('replay-intro-btn');
 
-        const sheet1 = document.getElementById('sheet1');
-        const sheet2 = document.getElementById('sheet2');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const pageIndicator = document.getElementById('pageIndicator');
+            const candleTrigger = document.getElementById('candle-trigger');
+            const candleFlame = document.getElementById('candle-flame');
+            const flameHalo = document.getElementById('flame-halo');
+            const smoke1 = document.getElementById('smoke-1');
+            const smoke2 = document.getElementById('smoke-2');
+            const wishPrompt = document.getElementById('wish-prompt');
+            const blessingBanner = document.getElementById('blessing-banner');
+            const relightCandleBtn = document.getElementById('relight-candle-btn');
 
-        function updateBookState() {
-            if (currentSpread === 1) {
-                sheet1.classList.remove('flipped');
-                sheet2.classList.remove('flipped');
-                sheet1.style.zIndex = 2;
-                sheet2.style.zIndex = 1;
-                
-                prevBtn.disabled = true;
-                nextBtn.disabled = false;
-                pageIndicator.innerText = "Page 1 of 4";
-            } 
-            else if (currentSpread === 2) {
-                sheet1.classList.add('flipped');
-                sheet2.classList.remove('flipped');
-                sheet1.style.zIndex = 1;
-                sheet2.style.zIndex = 2;
-                
-                prevBtn.disabled = false;
-                nextBtn.disabled = false;
-                pageIndicator.innerText = "Pages 2 & 3 of 4";
-            } 
-            else if (currentSpread === 3) {
-                sheet1.classList.add('flipped');
-                sheet2.classList.add('flipped');
-                sheet1.style.zIndex = 1;
-                sheet2.style.zIndex = 2;
-                
-                prevBtn.disabled = false;
-                nextBtn.disabled = true;
-                pageIndicator.innerText = "Page 4 of 4";
+            let candleLit = true;
+            let audioCtx = null;
+
+            /* -----------------------------------------------------------------
+               1. Web Audio API: Grand Piano / Warm Chime & Soft Sparkle Synth
+               ----------------------------------------------------------------- */
+            function getAudioContext() {
+                if (!audioCtx) {
+                    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                    if (AudioContextClass) {
+                        audioCtx = new AudioContextClass();
+                    }
+                }
+                if (audioCtx && audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                return audioCtx;
             }
-        }
 
-        function nextPage() {
-            if (currentSpread < 3) {
-                currentSpread++;
-                updateBookState();
-            }
-        }
+            function playGrandPianoChord() {
+                try {
+                    const ctx = getAudioContext();
+                    if (!ctx) return;
 
-        function prevPage() {
-            if (currentSpread > 1) {
-                currentSpread--;
-                updateBookState();
+                    // Warm Major 9th Arpeggio (C4, G4, B4, D5, E5, G5)
+                    const frequencies = [261.63, 392.00, 493.88, 587.33, 659.25, 783.99];
+                    const now = ctx.currentTime;
+
+                    frequencies.forEach((freq, idx) => {
+                        const osc = ctx.createOscillator();
+                        const harmonic = ctx.createOscillator();
+                        const gain = ctx.createGain();
+
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.09);
+
+                        harmonic.type = 'sine';
+                        harmonic.frequency.setValueAtTime(freq * 2, now + idx * 0.09);
+
+                        const harmonicGain = ctx.createGain();
+                        harmonicGain.gain.setValueAtTime(0.18, now + idx * 0.09);
+
+                        gain.gain.setValueAtTime(0.0001, now + idx * 0.09);
+                        gain.gain.exponentialRampToValueAtTime(0.14, now + idx * 0.09 + 0.03);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.09 + 2.4);
+
+                        osc.connect(gain);
+                        harmonic.connect(harmonicGain);
+                        harmonicGain.connect(gain);
+                        gain.connect(ctx.destination);
+
+                        osc.start(now + idx * 0.09);
+                        harmonic.start(now + idx * 0.09);
+                        osc.stop(now + idx * 0.09 + 2.5);
+                        harmonic.stop(now + idx * 0.09 + 2.5);
+                    });
+                } catch (err) {
+                    // Graceful fallback if audio blocked
+                }
             }
-        }
+
+            function playBlowAndSparkleSound() {
+                try {
+                    const ctx = getAudioContext();
+                    if (!ctx) return;
+                    const now = ctx.currentTime;
+
+                    // Soft Wind Breeze (Filtered White Noise)
+                    const bufferSize = ctx.sampleRate * 0.45;
+                    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                    const output = noiseBuffer.getChannelData(0);
+                    for (let i = 0; i < bufferSize; i++) {
+                        output[i] = Math.random() * 2 - 1;
+                    }
+
+                    const whiteNoise = ctx.createBufferSource();
+                    whiteNoise.buffer = noiseBuffer;
+
+                    const filter = ctx.createBiquadFilter();
+                    filter.type = 'bandpass';
+                    filter.frequency.setValueAtTime(420, now);
+                    filter.Q.setValueAtTime(1.5, now);
+
+                    const noiseGain = ctx.createGain();
+                    noiseGain.gain.setValueAtTime(0.001, now);
+                    noiseGain.gain.linearRampToValueAtTime(0.18, now + 0.08);
+                    noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+
+                    whiteNoise.connect(filter);
+                    filter.connect(noiseGain);
+                    noiseGain.connect(ctx.destination);
+                    whiteNoise.start(now);
+
+                    // Ascending Shimmering Sparkles
+                    const sparkleNotes = [523.25, 659.25, 783.99, 1046.50, 1318.51];
+                    sparkleNotes.forEach((freq, i) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, now + 0.25 + i * 0.08);
+
+                        gain.gain.setValueAtTime(0.0001, now + 0.25 + i * 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.09, now + 0.27 + i * 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.4 + i * 0.08);
+
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + 0.25 + i * 0.08);
+                        osc.stop(now + 1.5 + i * 0.08);
+                    });
+                } catch (err) {
+                    // Graceful fallback
+                }
+            }
+
+            /* -----------------------------------------------------------------
+               2. Canvas Confetti: Royal Gold & Midnight Blue Fireworks Engine
+               ----------------------------------------------------------------- */
+            const goldPalette = ['#d4af37', '#f6e7c1', '#ffffff', '#b8891e', '#1e3a8a', '#3b82f6'];
+
+            function launchRoyalConfettiBurst() {
+                if (typeof confetti !== 'function') return;
+                confetti({
+                    particleCount: 90,
+                    spread: 80,
+                    origin: { y: 0.62 },
+                    colors: goldPalette,
+                    scalar: 1.05
+                });
+            }
+
+            function launchGrandFireworks() {
+                if (typeof confetti !== 'function') return;
+                const duration = 2600;
+                const animationEnd = Date.now() + duration;
+                const defaults = { startVelocity: 32, spread: 360, ticks: 70, zIndex: 60, colors: goldPalette };
+
+                const interval = setInterval(() => {
+                    const timeLeft = animationEnd - Date.now();
+                    if (timeLeft <= 0) {
+                        clearInterval(interval);
+                        return;
+                    }
+                    const particleCount = Math.round(45 * (timeLeft / duration));
+                    confetti({
+                        ...defaults,
+                        particleCount,
+                        origin: { x: Math.random() * 0.35 + 0.1, y: Math.random() * 0.35 + 0.15 }
+                    });
+                    confetti({
+                        ...defaults,
+                        particleCount,
+                        origin: { x: Math.random() * 0.35 + 0.55, y: Math.random() * 0.35 + 0.15 }
+                    });
+                }, 320);
+            }
+
+            /* -----------------------------------------------------------------
+               3. 60FPS Ambient Gold Dust Particle Background Canvas
+               ----------------------------------------------------------------- */
+            const dustCanvas = document.getElementById('gold-dust-canvas');
+            const dCtx = dustCanvas.getContext('2d');
+            let dustParticles = [];
+
+            function resizeDustCanvas() {
+                dustCanvas.width = window.innerWidth;
+                dustCanvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeDustCanvas);
+            resizeDustCanvas();
+
+            function initDustParticles() {
+                const count = window.innerWidth < 640 ? 35 : 65;
+                dustParticles = Array.from({ length: count }, () => ({
+                    x: Math.random() * dustCanvas.width,
+                    y: Math.random() * dustCanvas.height,
+                    radius: Math.random() * 1.8 + 0.5,
+                    vx: (Math.random() - 0.5) * 0.25,
+                    vy: -(Math.random() * 0.35 + 0.1),
+                    alpha: Math.random() * 0.65 + 0.2,
+                    twinkleSpeed: Math.random() * 0.02 + 0.005
+                }));
+            }
+            initDustParticles();
+
+            function animateGoldDust() {
+                dCtx.clearRect(0, 0, dustCanvas.width, dustCanvas.height);
+
+                for (const p of dustParticles) {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.alpha += Math.sin(Date.now() * p.twinkleSpeed) * 0.008;
+
+                    if (p.y < -10) {
+                        p.y = dustCanvas.height + 10;
+                        p.x = Math.random() * dustCanvas.width;
+                    }
+                    if (p.x < -10) p.x = dustCanvas.width + 10;
+                    if (p.x > dustCanvas.width + 10) p.x = -10;
+
+                    const clampedAlpha = Math.max(0.1, Math.min(0.85, p.alpha));
+                    dCtx.beginPath();
+                    dCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    dCtx.fillStyle = `rgba(246, 231, 193, ${clampedAlpha})`;
+                    dCtx.shadowBlur = 8;
+                    dCtx.shadowColor = '#d4af37';
+                    dCtx.fill();
+                }
+
+                requestAnimationFrame(animateGoldDust);
+            }
+            animateGoldDust();
+
+            /* -----------------------------------------------------------------
+               4. 3D Tilt Hover & Touch Interaction on Tribute Cards
+               ----------------------------------------------------------------- */
+            const tiltCards = document.querySelectorAll('.tilt-card');
+            tiltCards.forEach((card) => {
+                const handleMove = (clientX, clientY) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = clientX - rect.left;
+                    const y = clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -7;
+                    const rotateY = ((x - centerX) / centerX) * 7;
+                    card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+                };
+
+                const resetTilt = () => {
+                    card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+                };
+
+                card.addEventListener('mousemove', (e) => handleMove(e.clientX, e.clientY));
+                card.addEventListener('mouseleave', resetTilt);
+                card.addEventListener('touchmove', (e) => {
+                    if (e.touches.length > 0) {
+                        handleMove(e.touches[0].clientX, e.touches[0].clientY);
+                    }
+                }, { passive: true });
+                card.addEventListener('touchend', resetTilt);
+            });
+
+            /* -----------------------------------------------------------------
+               5. Scroll-Reveal Intersection Observer
+               ----------------------------------------------------------------- */
+            const revealBlocks = document.querySelectorAll('.reveal-block');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            revealBlocks.forEach((block) => observer.observe(block));
+
+            /* -----------------------------------------------------------------
+               6. Grand Curtain Open & Replay Logic
+               ----------------------------------------------------------------- */
+            openTributeBtn.addEventListener('click', () => {
+                playGrandPianoChord();
+                curtainOverlay.classList.add('opened');
+                setTimeout(() => {
+                    curtainOverlay.classList.add('hidden-overlay');
+                }, 1300);
+
+                launchRoyalConfettiBurst();
+                revealBlocks.forEach((b, i) => {
+                    setTimeout(() => b.classList.add('is-visible'), 250 + i * 160);
+                });
+            });
+
+            replayIntroBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                curtainOverlay.classList.remove('hidden-overlay');
+                requestAnimationFrame(() => {
+                    curtainOverlay.classList.remove('opened');
+                });
+            });
+
+            /* -----------------------------------------------------------------
+               7. Fireworks Buttons
+               ----------------------------------------------------------------- */
+            heroFireworksBtn.addEventListener('click', () => {
+                playGrandPianoChord();
+                launchGrandFireworks();
+            });
+
+            floatFireworksBtn.addEventListener('click', () => {
+                playGrandPianoChord();
+                launchGrandFireworks();
+            });
+
+            /* -----------------------------------------------------------------
+               8. Interactive Candle Wish Ritual
+               ----------------------------------------------------------------- */
+            candleTrigger.addEventListener('click', () => {
+                if (!candleLit) return;
+                candleLit = false;
+
+                playBlowAndSparkleSound();
+                candleFlame.classList.add('extinguished');
+                flameHalo.classList.add('extinguished');
+
+                smoke1.classList.remove('rising');
+                smoke2.classList.remove('rising');
+                void smoke1.offsetWidth;
+                smoke1.classList.add('rising');
+                smoke2.classList.add('rising');
+
+                wishPrompt.innerHTML = '<span class="text-[#f6e7c1] font-medium">A royal wish has been sent to the stars for Rahul Sir!</span>';
+                blessingBanner.classList.remove('hidden');
+
+                launchGrandFireworks();
+            });
+
+            relightCandleBtn.addEventListener('click', () => {
+                candleLit = true;
+                candleFlame.classList.remove('extinguished');
+                flameHalo.classList.remove('extinguished');
+                smoke1.classList.remove('rising');
+                smoke2.classList.remove('rising');
+                wishPrompt.innerHTML = 'Make a wish, Rahul Sir — <strong class="text-[#d4af37] underline decoration-[#d4af37]/50 underline-offset-4">Tap the flame to blow out the candle</strong>';
+                blessingBanner.classList.add('hidden');
+            });
+        });
     </script>
 </body>
 </html>
