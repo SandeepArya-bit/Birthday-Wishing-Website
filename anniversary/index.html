@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Wedding Anniversary — Rajesh Bhaiya & Jyoti Bhabhi</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Great Vibes, Cormorant Garamond & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --royal-maroon: #4a0612;
+      --deep-crimson: #2a0309;
+      --gold-light: #fcf6ba;
+      --gold-mid: #e5b84b;
+      --gold-dark: #aa771c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top center, #5c0a1a 0%, #2d040b 55%, #180105 100%);
+      color: #fff8eb;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .font-script {
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .font-serif-elegant {
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* Gold Foil Text Shimmer */
+    .gold-foil-text {
+      background: linear-gradient(
+        135deg,
+        #bf953f 0%,
+        #fcf6ba 25%,
+        #b38728 50%,
+        #fbf5b7 75%,
+        #aa771c 100%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShine 5s linear infinite;
+    }
+
+    @keyframes goldShine {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    /* Royal Glass Card */
+    .royal-card {
+      background: linear-gradient(160deg, rgba(64, 8, 19, 0.88) 0%, rgba(30, 3, 8, 0.94) 100%);
+      border: 1.5px solid rgba(229, 184, 75, 0.42);
+      box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.65),
+        inset 0 0 28px rgba(229, 184, 75, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Page Transition Visibility */
+    .page-section {
+      display: none;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .page-section.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Rotating Mandala Halo */
+    @keyframes rotateMandala {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    .mandala-halo {
+      transform-origin: 0px 0px;
+      animation: rotateMandala 38s linear infinite;
+    }
+
+    /* Subtle Shimmer on Kumaoni Gold Nath & Galobandh */
+    @keyframes nathShimmer {
+      0%, 100% {
+        filter: drop-shadow(0 0 2px rgba(252, 246, 186, 0.45));
+      }
+      50% {
+        filter: drop-shadow(0 0 6px rgba(252, 246, 186, 0.95));
+      }
+    }
+    .kumaoni-gold-glow {
+      animation: nathShimmer 3.6s ease-in-out infinite;
+    }
+
+    /* Gentle Standing Breathing & Varmala Offering Motion */
+    @keyframes gentleBreatheLeft {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-2.5px);
+      }
+    }
+    @keyframes gentleBreatheRight {
+      0%, 100% {
+        transform: translateY(-1.2px);
+      }
+      50% {
+        transform: translateY(1.5px);
+      }
+    }
+    @keyframes varmalaOfferMotion {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-5px) rotate(-1.2deg);
+      }
+    }
+    @keyframes varmalaGarlandSway {
+      0%, 100% {
+        transform: scaleY(1) rotate(0deg);
+      }
+      50% {
+        transform: scaleY(1.03) rotate(1deg);
+      }
+    }
+    @keyframes pichoraSway {
+      0%, 100% {
+        transform: skewX(0deg);
+      }
+      50% {
+        transform: skewX(1.3deg);
+      }
+    }
+    @keyframes sparkleFloat {
+      0%, 100% {
+        opacity: 0.25;
+        transform: scale(0.85) translateY(0px);
+      }
+      50% {
+        opacity: 0.95;
+        transform: scale(1.2) translateY(-6px);
+      }
+    }
+
+    .pose-rajesh {
+      transform-origin: center bottom;
+      animation: gentleBreatheLeft 4.2s ease-in-out infinite;
+    }
+    .pose-jyoti {
+      transform-origin: center bottom;
+      animation: gentleBreatheRight 4.2s ease-in-out infinite;
+    }
+    .varmala-arms-lift {
+      transform-origin: center center;
+      animation: varmalaOfferMotion 3.8s ease-in-out infinite;
+    }
+    .varmala-garland-hang {
+      transform-origin: 270px 195px;
+      animation: varmalaGarlandSway 3.8s ease-in-out infinite;
+    }
+    .varmala-garland-rajesh {
+      transform-origin: 224px 206px;
+      animation: varmalaGarlandSway 3.8s ease-in-out infinite;
+    }
+    .varmala-garland-jyoti {
+      transform-origin: 316px 210px;
+      animation: varmalaGarlandSway 4.1s ease-in-out infinite 0.5s;
+    }
+    .pichora-drape {
+      transform-origin: center top;
+      animation: pichoraSway 4.6s ease-in-out infinite;
+    }
+    .sparkle-twinkle-1 {
+      animation: sparkleFloat 2.8s ease-in-out infinite;
+    }
+    .sparkle-twinkle-2 {
+      animation: sparkleFloat 3.3s ease-in-out infinite 0.9s;
+    }
+    .sparkle-twinkle-3 {
+      animation: sparkleFloat 3.1s ease-in-out infinite 1.7s;
+    }
+
+    /* Asymmetric Natural Eye Blinks */
+    @keyframes eyeBlink {
+      0%, 92%, 100% {
+        transform: scaleY(1);
+      }
+      95% {
+        transform: scaleY(0.08);
+      }
+    }
+    .eye-blink-rajesh {
+      transform-origin: center -142px;
+      animation: eyeBlink 4.8s infinite;
+    }
+    .eye-blink-jyoti {
+      transform-origin: center -140px;
+      animation: eyeBlink 5.4s infinite 1.4s;
+    }
+
+    /* Royal Button Styling */
+    .btn-royal-gold {
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      color: #2b040b;
+      font-weight: 700;
+      box-shadow: 0 6px 20px rgba(253, 160, 133, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-royal-gold:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 26px rgba(253, 160, 133, 0.52);
+    }
+    .btn-royal-gold:active {
+      transform: scale(0.98);
+    }
+
+    /* Toast Message */
+    #toastMessage {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  </style>
+</head>
+<body class="relative selection:bg-amber-400 selection:text-red-950">
+
+  <!-- Full-Screen Falling Flower Petals Canvas -->
+  <canvas
+    id="petalCanvas"
+    class="fixed inset-0 w-full h-full pointer-events-none z-40"
+  ></canvas>
+
+  <!-- Toast Notification (Replaces alert) -->
+  <div
+    id="toastMessage"
+    class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-full bg-red-950/95 border border-amber-400/60 text-amber-200 text-xs sm:text-sm font-medium shadow-xl opacity-0 pointer-events-none translate-y-3 whitespace-nowrap"
+  >
+    🌸 Phoolon ki barish ho rahi hai!
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- FROZEN TOP BAR (VISIBLE ONLY ON PAGE 2 — HIDDEN ON PAGES 1 & 3)       -->
+  <!-- ===================================================================== -->
+  <div
+    id="page2FrozenBar"
+    class="fixed top-3 right-3 sm:top-4 sm:right-5 z-50 hidden items-center gap-2 sm:gap-2.5"
+  >
+    <!-- Song Toggle Button -->
+    <button
+      id="songToggleBtn"
+      type="button"
+      onclick="toggleAnniversarySong()"
+      class="px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full bg-red-950/90 hover:bg-red-900 border border-amber-400/60 text-amber-200 text-xs sm:text-sm font-semibold shadow-lg backdrop-blur-md flex items-center gap-1.5 transition active:scale-95"
+      aria-label="Play or Pause Anniversary Song"
+    >
+      <span id="songIcon">🎵</span>
+      <span id="songLabel">Play Song</span>
+    </button>
+
+    <!-- Phool Barsayein Button -->
+    <button
+      id="showerFlowersBtn"
+      type="button"
+      onclick="triggerMegaFlowerBurst(95, true)"
+      class="btn-royal-gold px-3.5 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm flex items-center gap-1.5 shadow-lg"
+      aria-label="Phool Barsayein"
+    >
+      <span>🌸</span>
+      <span>Phool Barsayein</span>
+    </button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 1: FRONT COVER / ANNIVERSARY WISHING CARD                        -->
+  <!-- ===================================================================== -->
+  <main
+    id="page1"
+    class="page-section active min-h-screen w-full flex-col items-center justify-center px-4 py-8 sm:px-6 relative z-10"
+  >
+    <div class="royal-card w-full max-w-2xl rounded-3xl p-6 sm:p-10 md:p-12 text-center relative overflow-hidden">
+      <!-- Corner Gold Flourishes -->
+      <div class="absolute top-3 left-3 w-8 h-8 border-t-2 border-l-2 border-amber-400/60 rounded-tl-xl"></div>
+      <div class="absolute top-3 right-3 w-8 h-8 border-t-2 border-r-2 border-amber-400/60 rounded-tr-xl"></div>
+      <div class="absolute bottom-3 left-3 w-8 h-8 border-b-2 border-l-2 border-amber-400/60 rounded-bl-xl"></div>
+      <div class="absolute bottom-3 right-3 w-8 h-8 border-b-2 border-r-2 border-amber-400/60 rounded-br-xl"></div>
+
+      <!-- Top Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/40 text-amber-200 text-xs sm:text-sm tracking-widest uppercase mb-5">
+        <span>✨</span>
+        <span>Shubh Vivah Varshgaanth</span>
+        <span>✨</span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1
+        class="font-serif-elegant font-bold tracking-wide text-amber-100 leading-tight mb-3"
+        style="font-size: clamp(1.9rem, 5vw, 3.2rem);"
+      >
+        Happy Wedding Anniversary
+      </h1>
+
+      <!-- Decorative Divider -->
+      <div class="flex items-center justify-center gap-3 my-4">
+        <span class="h-[1px] w-14 sm:w-24 bg-gradient-to-r from-transparent to-amber-400"></span>
+        <span class="text-amber-300 text-lg">❖</span>
+        <span class="h-[1px] w-14 sm:w-24 bg-gradient-to-l from-transparent to-amber-400"></span>
+      </div>
+
+      <!-- Couple Names -->
+      <h2
+        class="font-script gold-foil-text leading-snug py-1 mb-5"
+        style="font-size: clamp(2.4rem, 7vw, 4.3rem);"
+      >
+        Rajesh Bhaiya &amp; Jyoti Bhabhi
+      </h2>
+
+      <!-- Requested Hindi Quote -->
+      <div class="max-w-lg mx-auto bg-black/25 border border-amber-400/25 rounded-2xl px-5 py-4 sm:px-7 sm:py-5 mb-8">
+        <p
+          class="font-serif-elegant italic text-amber-100/95 leading-relaxed"
+          style="font-size: clamp(1.15rem, 3vw, 1.55rem);"
+        >
+          “Do dil, ek jaan, aur pyaar bhara yeh safar hamesha yunhi muskurata rahe.”
+        </p>
+      </div>
+
+      <!-- Next Page CTA Button -->
+      <button
+        type="button"
+        onclick="goToPage(2)"
+        class="btn-royal-gold px-7 py-3.5 sm:px-9 sm:py-4 rounded-full text-sm sm:text-base inline-flex items-center gap-2.5"
+      >
+        <span>Next Page</span>
+        <span class="text-lg leading-none">→</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 2: KUMAONI VARMALA CEREMONY & AUTOMATIC FLOWER SHOWER            -->
+  <!-- ===================================================================== -->
+  <section
+    id="page2"
+    class="page-section min-h-screen w-full flex-col items-center justify-center px-3 pt-16 pb-8 sm:px-6 sm:pt-20 relative z-10"
+  >
+    <div class="royal-card w-full max-w-3xl rounded-3xl p-4 sm:p-7 md:p-8 text-center relative">
+      <!-- Header -->
+      <div class="mb-2 sm:mb-3">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-amber-400/15 border border-amber-400/35 text-amber-200 text-[11px] sm:text-xs uppercase tracking-[0.22em]">
+          Shubh Varmala Milan • Uttarakhand Parampara
+        </span>
+        <h2
+          class="font-script text-amber-200 mt-1.5"
+          style="font-size: clamp(1.85rem, 4.8vw, 2.85rem);"
+        >
+          Rajesh Bhaiya &amp; Jyoti Bhabhi
+        </h2>
+      </div>
+
+      <!-- Animated Varmala Portrait Stage SVG -->
+      <div class="relative w-full max-w-2xl mx-auto my-2 rounded-2xl overflow-hidden border border-amber-400/30 bg-gradient-to-b from-[#1f0716] via-[#3b0c1e] to-[#23060c] shadow-inner">
+        <svg
+          id="varmalaScene"
+          viewBox="0 0 540 420"
+          class="w-full h-auto block select-none"
+          role="img"
+          aria-label="Rajesh Bhaiya and Jyoti Bhabhi exchanging floral Varmala garlands in Kumaoni bridal and groom attire"
+        >
+          <defs>
+            <!-- Sky & Himalayan Twilight Gradient -->
+            <linearGradient id="himalayaSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#19081b" />
+              <stop offset="48%" stop-color="#441026" />
+              <stop offset="82%" stop-color="#7c2330" />
+              <stop offset="100%" stop-color="#2c070e" />
+            </linearGradient>
+
+            <!-- Golden Halo Glow -->
+            <radialGradient id="mandapHalo" cx="50%" cy="46%" r="50%">
+              <stop offset="0%" stop-color="#ffd97d" stop-opacity="0.38" />
+              <stop offset="60%" stop-color="#d97724" stop-opacity="0.12" />
+              <stop offset="100%" stop-color="#19081b" stop-opacity="0" />
+            </radialGradient>
+
+            <!-- Warm Skin & Attire Gradients -->
+            <linearGradient id="skinTone" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f5c6a5" />
+              <stop offset="100%" stop-color="#dfa07a" />
+            </linearGradient>
+            <linearGradient id="sherwaniGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fffaf0" />
+              <stop offset="55%" stop-color="#f3e2be" />
+              <stop offset="100%" stop-color="#d8be8a" />
+            </linearGradient>
+            <linearGradient id="lehengaGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#c81432" />
+              <stop offset="55%" stop-color="#9b0b23" />
+              <stop offset="100%" stop-color="#610515" />
+            </linearGradient>
+            <linearGradient id="pichoraGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffbe2e" />
+              <stop offset="50%" stop-color="#f58216" />
+              <stop offset="100%" stop-color="#d9381e" />
+            </linearGradient>
+            <linearGradient id="goldOrnament" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fcf6ba" />
+              <stop offset="50%" stop-color="#e5b84b" />
+              <stop offset="100%" stop-color="#9c6c19" />
+            </linearGradient>
+          </defs>
+
+          <!-- =============================================================== -->
+          <!-- LAYER 1: HIMALAYAN SKY, GOLDEN HALO & MARIGOLD MANDAP           -->
+          <!-- =============================================================== -->
+          <rect x="0" y="0" width="540" height="420" fill="url(#himalayaSky)" />
+          <ellipse cx="270" cy="210" rx="250" ry="185" fill="url(#mandapHalo)" />
+
+          <!-- Distant Kumaoni Himalayan Peaks Silhouette -->
+          <path
+            d="M 0 285 L 68 205 L 124 248 L 198 172 L 270 232 L 346 168 L 420 242 L 484 196 L 540 278 L 540 365 L 0 365 Z"
+            fill="#280917"
+            opacity="0.72"
+          />
+
+          <!-- Decorated Wooden & Marigold Mandap Pillars & Toran -->
+          <rect x="34" y="40" width="14" height="315" rx="4" fill="#54111b" stroke="#d4a137" stroke-width="1.2" />
+          <rect x="492" y="40" width="14" height="315" rx="4" fill="#54111b" stroke="#d4a137" stroke-width="1.2" />
+          <path d="M 22 42 Q 270 14 518 42 L 506 58 Q 270 32 34 58 Z" fill="#8e0e24" stroke="#f5cb5c" stroke-width="1.5" />
+          <path d="M 46 54 Q 158 96 270 54 Q 382 96 494 54" fill="none" stroke="#ff9914" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 7" />
+          <path d="M 46 54 Q 158 96 270 54 Q 382 96 494 54" fill="none" stroke="#ffe047" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="1 7" />
+
+          <!-- Hanging Brass Temple Bells -->
+          <g fill="url(#goldOrnament)">
+            <line x1="88" y1="60" x2="88" y2="86" stroke="#f5cb5c" stroke-width="1.2" />
+            <path d="M 81 96 L 95 96 L 91 86 L 85 86 Z" />
+            <circle cx="88" cy="98" r="2" />
+
+            <line x1="452" y1="60" x2="452" y2="86" stroke="#f5cb5c" stroke-width="1.2" />
+            <path d="M 445 96 L 459 96 L 455 86 L 449 86 Z" />
+            <circle cx="452" cy="98" r="2" />
+          </g>
+
+          <!-- =============================================================== -->
+          <!-- LAYER 2: ROYAL CARPETED VARMALA STAGE FLOOR                     -->
+          <!-- =============================================================== -->
+          <ellipse cx="270" cy="366" rx="236" ry="44" fill="#3a0812" stroke="#d4a137" stroke-width="1.5" />
+          <ellipse cx="270" cy="366" rx="216" ry="37" fill="#5c0e1e" stroke="#f5cb5c" stroke-width="0.9" stroke-dasharray="5 4" />
+
+          <!-- =============================================================== -->
+          <!-- LAYER 3: RAJESH BHAIYA (LEFT — STANDING IN ROYAL SHERWANI)      -->
+          <!-- =============================================================== -->
+          <g transform="translate(162, 364) scale(1.16)">
+            <g class="pose-rajesh">
+              <!-- Ground Shadow -->
+              <ellipse cx="0" cy="4" rx="30" ry="7" fill="rgba(0,0,0,0.45)" />
+
+              <!-- Mojari Shoes & Churidar -->
+              <path d="M -13 -28 L -14 -2 L -5 -2 L -4 -28 Z" fill="#f3e5c8" />
+              <path d="M -16 -3 Q -16 3 -7 3 L -2 3 Q -1 -2 -6 -4 Z" fill="#8b1124" stroke="#e5b84b" stroke-width="0.9" />
+              <path d="M 5 -28 L 6 -2 L 15 -2 L 14 -28 Z" fill="#e8d5b0" />
+              <path d="M 4 -4 Q 3 3 9 3 L 18 3 Q 19 -2 14 -4 Z" fill="#8b1124" stroke="#e5b84b" stroke-width="0.9" />
+
+              <!-- Royal Ivory-Gold Bandhgala Sherwani -->
+              <path
+                d="M -23 -116 C -29 -92 -31 -52 -28 -22 L 28 -22 C 31 -52 29 -92 23 -116 Q 0 -123 -23 -116 Z"
+                fill="url(#sherwaniGrad)"
+                stroke="#cfa043"
+                stroke-width="1.3"
+              />
+              <!-- Gold Placket & Buttons -->
+              <line x1="2" y1="-116" x2="2" y2="-23" stroke="#b88428" stroke-width="1.4" />
+              <circle cx="2" cy="-100" r="1.8" fill="#d49e35" />
+              <circle cx="2" cy="-86" r="1.8" fill="#d49e35" />
+              <circle cx="2" cy="-72" r="1.8" fill="#d49e35" />
+              <circle cx="2" cy="-58" r="1.8" fill="#d49e35" />
+              <!-- Sherwani Hem Border -->
+              <path d="M -28 -28 L 28 -28 L 28 -22 L -28 -22 Z" fill="#9c1328" stroke="#e5b84b" stroke-width="0.8" />
+
+              <!-- Maroon Velvet Groom Stole -->
+              <path
+                d="M -18 -116 C -27 -96 -27 -64 -22 -34 L -13 -34 C -17 -64 -17 -94 -10 -116 Z"
+                fill="#8e0e24"
+                stroke="#e5b84b"
+                stroke-width="1"
+              />
+              <path
+                d="M 11 -116 C 19 -94 23 -64 20 -36 L 13 -36 C 15 -64 12 -92 5 -116 Z"
+                fill="#8e0e24"
+                stroke="#e5b84b"
+                stroke-width="1"
+              />
+
+              <!-- Multi-Strand Pearl Groom Haar -->
+              <path d="M -11 -115 Q 1 -88 13 -115" fill="none" stroke="#fffdf7" stroke-width="2.2" />
+              <path d="M -13 -114 Q 1 -81 15 -114" fill="none" stroke="#e5b84b" stroke-width="1.4" stroke-dasharray="2 2" />
+
+              <!-- Neck & Gently Turned Head Facing Jyoti Bhabhi -->
+              <rect x="-5" y="-125" width="11" height="11" rx="4" fill="url(#skinTone)" />
+              <path
+                d="M -14 -147 C -14 -160 15 -160 15 -147 C 15 -133 10 -123 1 -123 C -8 -123 -14 -133 -14 -147 Z"
+                fill="url(#skinTone)"
+              />
+              <!-- Neatly Groomed Beard & Mustache -->
+              <path
+                d="M -13.5 -140 C -13 -129 -6.5 -122.5 1 -122.5 C 8 -122.5 14 -129 14.5 -140 C 12 -132 7 -129 1 -129 C -5 -129 -11 -132 -13.5 -140 Z"
+                fill="#231715"
+                opacity="0.88"
+              />
+              <path d="M -4 -131.5 Q 2 -133.5 8 -131.5" fill="none" stroke="#1f1412" stroke-width="1.6" stroke-linecap="round" />
+
+              <!-- Eyes, Brows, Tilak & Affectionate Smile -->
+              <path d="M -7 -145 Q -3.5 -147 -0.5 -145" fill="none" stroke="#1f1412" stroke-width="1.3" stroke-linecap="round" />
+              <path d="M 4.5 -145 Q 7.5 -147 11 -145" fill="none" stroke="#1f1412" stroke-width="1.3" stroke-linecap="round" />
+              <g class="eye-blink-rajesh">
+                <ellipse cx="-3.5" cy="-142" rx="2.1" ry="1.5" fill="#1e1311" />
+                <circle cx="-2.9" cy="-142.4" r="0.55" fill="#ffffff" />
+                <ellipse cx="7.5" cy="-142" rx="2.1" ry="1.5" fill="#1e1311" />
+                <circle cx="8.1" cy="-142.4" r="0.55" fill="#ffffff" />
+              </g>
+              <!-- Kumaoni Tilak -->
+              <line x1="2" y1="-149" x2="2" y2="-143.5" stroke="#e6192e" stroke-width="1.8" stroke-linecap="round" />
+              <circle cx="2" cy="-146" r="1" fill="#ffd633" />
+              <!-- Subtle Nose Bridge & Tip -->
+              <path d="M 1.5 -141 L 2.8 -134.5 Q 1.5 -133.2 0.2 -134.2" fill="none" stroke="#b97a56" stroke-width="1.2" stroke-linecap="round" />
+              <!-- Warm Smile -->
+              <path d="M -1.5 -128.5 Q 2 -125.8 5.5 -128.5" fill="none" stroke="#8c3b32" stroke-width="1.3" stroke-linecap="round" />
+
+              <!-- Royal Saffron-Gold Groom Pagdi & Kalgi -->
+              <path
+                d="M -16 -148 C -18 -163 18 -163 16 -148 C 12 -151 -12 -151 -16 -148 Z"
+                fill="#d92b3a"
+                stroke="#f5cb5c"
+                stroke-width="1.2"
+              />
+              <path d="M -15 -152 Q 0 -159 15 -152" fill="none" stroke="#fce99f" stroke-width="1.5" />
+              <path d="M -13 -156 Q 0 -162 13 -156" fill="none" stroke="#e5b84b" stroke-width="1.3" />
+              <path d="M 6 -157 Q 13 -170 17 -163 Q 12 -157 7 -155 Z" fill="#fcf6ba" stroke="#c88d22" stroke-width="0.9" />
+              <circle cx="7" cy="-156" r="2.6" fill="#e6192e" stroke="#fcf6ba" stroke-width="0.9" />
+            </g>
+          </g>
+
+          <!-- =============================================================== -->
+          <!-- LAYER 4: JYOTI BHABHI (RIGHT — KUMAONI BRIDAL ATTIRE & NATH)    -->
+          <!-- =============================================================== -->
+          <g transform="translate(378, 364) scale(1.16)">
+            <g class="pose-jyoti">
+              <!-- Ground Shadow -->
+              <ellipse cx="0" cy="4" rx="34" ry="7.5" fill="rgba(0,0,0,0.45)" />
+
+              <!-- Flowing Saffron-Red Rangwali Pichora Back Drape -->
+              <g class="pichora-drape">
+                <path
+                  d="M 10 -152 C 32 -132 39 -76 34 -18 L 16 -18 C 20 -72 16 -118 4 -144 Z"
+                  fill="url(#pichoraGrad)"
+                  stroke="#e5b84b"
+                  stroke-width="1"
+                />
+                <!-- Traditional Kumaoni Pichora Dots & Sun Motifs -->
+                <circle cx="24" cy="-96" r="2.8" fill="#b91c1c" />
+                <circle cx="27" cy="-68" r="2.8" fill="#b91c1c" />
+                <circle cx="25" cy="-42" r="2.8" fill="#b91c1c" />
+              </g>
+
+              <!-- Crimson-Gold Kumaoni Bridal Lehenga Skirt -->
+              <path
+                d="M -16 -84 L 16 -84 L 33 -4 L -33 -4 Z"
+                fill="url(#lehengaGrad)"
+                stroke="#e5b84b"
+                stroke-width="1.2"
+              />
+              <!-- Vertical Lehenga Kalidar Gold Panels -->
+              <line x1="-8" y1="-84" x2="-17" y2="-4" stroke="#e5b84b" stroke-width="0.75" opacity="0.7" />
+              <line x1="0" y1="-84" x2="0" y2="-4" stroke="#e5b84b" stroke-width="0.75" opacity="0.7" />
+              <line x1="8" y1="-84" x2="17" y2="-4" stroke="#e5b84b" stroke-width="0.75" opacity="0.7" />
+              <!-- Broad Gold Gota-Patti Lehenga Hem -->
+              <path d="M -31 -13 L 31 -13 L 33 -4 L -33 -4 Z" fill="#d97706" stroke="#fcf6ba" stroke-width="0.9" />
+
+              <!-- Bridal Choli / Blouse -->
+              <path
+                d="M -17 -113 C -18 -99 -16 -88 -15 -83 L 15 -83 C 16 -88 18 -99 17 -113 Q 0 -118 -17 -113 Z"
+                fill="#b91c1c"
+                stroke="#e5b84b"
+                stroke-width="1.1"
+              />
+
+              <!-- Rangwali Pichora Front Cross Drape -->
+              <path
+                d="M 14 -114 C 5 -98 -10 -74 -24 -44 L -16 -38 C -3 -66 10 -88 18 -106 Z"
+                fill="url(#pichoraGrad)"
+                stroke="#fcf6ba"
+                stroke-width="0.9"
+                opacity="0.95"
+              />
+              <circle cx="-2" cy="-76" r="2.3" fill="#b91c1c" />
+              <circle cx="-10" cy="-60" r="2.3" fill="#b91c1c" />
+
+              <!-- Neck & Kumaoni Jewelry (Galobandh Choker & Chandrahaar) -->
+              <rect x="-4.5" y="-122" width="9" height="10" rx="3.5" fill="url(#skinTone)" />
+              <!-- Traditional Red Velvet & Gold Galobandh Choker -->
+              <rect x="-7.5" y="-119" width="15" height="4.8" rx="1.5" fill="#991b1b" stroke="#fcf6ba" stroke-width="0.7" class="kumaoni-gold-glow" />
+              <rect x="-5.5" y="-118.2" width="2.6" height="3.2" fill="url(#goldOrnament)" />
+              <rect x="-1.3" y="-118.2" width="2.6" height="3.2" fill="url(#goldOrnament)" />
+              <rect x="2.9" y="-118.2" width="2.6" height="3.2" fill="url(#goldOrnament)" />
+              <!-- Chandrahaar Necklace -->
+              <path d="M -10 -113 Q 0 -95 10 -113" fill="none" stroke="url(#goldOrnament)" stroke-width="2" />
+              <circle cx="0" cy="-103" r="2.3" fill="#e11d48" stroke="#fcf6ba" stroke-width="0.7" />
+
+              <!-- Bridal Hair Bun & Rangwali Pichora Head Veil -->
+              <circle cx="7" cy="-152" r="9.5" fill="#1c1110" />
+              <path
+                d="M -15 -148 C -16 -166 18 -166 18 -144 C 19 -130 16 -116 14 -106 L 10 -106 C 12 -120 13 -136 11 -147 C 3 -154 -8 -154 -15 -148 Z"
+                fill="url(#pichoraGrad)"
+                stroke="#fcf6ba"
+                stroke-width="1"
+              />
+              <!-- Gold Gota Forehead Border -->
+              <path d="M -14.5 -148 Q -1 -156 12 -147" fill="none" stroke="#fcf6ba" stroke-width="2" />
+
+              <!-- Graceful Face Turned Slightly Left Toward Rajesh Bhaiya -->
+              <path
+                d="M -13.5 -144 C -13.5 -157 12.5 -157 12.5 -144 C 12.5 -131 7 -121 -1 -121 C -8.5 -121 -13.5 -131 -13.5 -144 Z"
+                fill="url(#skinTone)"
+              />
+              <!-- Soft Hair Parting -->
+              <path d="M -13.5 -143 C -13 -153 6 -154 12 -143 C 8 -148 -7 -149 -13.5 -143 Z" fill="#1c1110" />
+
+              <!-- Kumaoni Bridal Bindi & Pahadi Brow Dots -->
+              <circle cx="-2.5" cy="-146.5" r="1.6" fill="#dc2626" stroke="#fcf6ba" stroke-width="0.4" />
+              <circle cx="-6" cy="-148.2" r="0.65" fill="#fcf6ba" />
+              <circle cx="1" cy="-148.2" r="0.65" fill="#fcf6ba" />
+              <circle cx="-9" cy="-147.2" r="0.6" fill="#dc2626" />
+              <circle cx="4" cy="-147.2" r="0.6" fill="#dc2626" />
+
+              <!-- Maang Tikka -->
+              <line x1="-2.5" y1="-152" x2="-2.5" y2="-148.5" stroke="#fcf6ba" stroke-width="1" />
+              <circle cx="-2.5" cy="-148.5" r="1.8" fill="url(#goldOrnament)" stroke="#dc2626" stroke-width="0.5" />
+
+              <!-- Expressive Bridal Eyes & Shy Smile -->
+              <path d="M -10 -143.5 Q -7 -145.5 -4.5 -143.5" fill="none" stroke="#1f1412" stroke-width="1.2" stroke-linecap="round" />
+              <path d="M 0 -143.5 Q 3 -145.5 6 -143.5" fill="none" stroke="#1f1412" stroke-width="1.2" stroke-linecap="round" />
+              <g class="eye-blink-jyoti">
+                <ellipse cx="-7" cy="-140.5" rx="2" ry="1.45" fill="#1e1311" />
+                <circle cx="-7.5" cy="-140.9" r="0.55" fill="#ffffff" />
+                <ellipse cx="3" cy="-140.5" rx="2" ry="1.45" fill="#1e1311" />
+                <circle cx="2.5" cy="-140.9" r="0.55" fill="#ffffff" />
+              </g>
+              <!-- Soft Rosy Blush & Smile -->
+              <circle cx="-8.5" cy="-134.5" r="2.2" fill="#f43f5e" opacity="0.24" />
+              <circle cx="4.5" cy="-134.5" r="2.2" fill="#f43f5e" opacity="0.24" />
+
+              <!-- Graceful Nose Bridge, Tip & Nostril -->
+              <path
+                d="M -2.2 -140.5 L -3.6 -134.5 Q -2.2 -133.2 -0.6 -134.2"
+                fill="none"
+                stroke="#b5714c"
+                stroke-width="1.3"
+                stroke-linecap="round"
+              />
+              <circle cx="-1.3" cy="-134.3" r="0.65" fill="#9c5a38" />
+
+              <!-- Shy Bridal Smile (Below Nose) -->
+              <path d="M -5 -127.8 Q -1.8 -125.2 1.4 -127.8" fill="none" stroke="#be123c" stroke-width="1.35" stroke-linecap="round" />
+
+              <!-- Iconic Large Gold Kumaoni Nath Pierced into Nostril -->
+              <g class="kumaoni-gold-glow">
+                <circle
+                  cx="-1.5"
+                  cy="-131.5"
+                  r="5.6"
+                  fill="none"
+                  stroke="url(#goldOrnament)"
+                  stroke-width="1.45"
+                />
+                <!-- Nostril Piercing Stud -->
+                <circle cx="-1.3" cy="-134.4" r="1" fill="#fcf6ba" />
+                <!-- Ruby & Pearl Filigree Beads on Nath -->
+                <circle cx="-5.5" cy="-127.6" r="1.15" fill="#e11d48" />
+                <circle cx="-3.3" cy="-126.1" r="1.05" fill="#fffbeb" />
+                <circle cx="-1.0" cy="-125.9" r="1.15" fill="#10b981" />
+                <!-- Beaded Gold Chain (Lad) Curving from Nath to Hair -->
+                <path
+                  d="M 4.0 -132.2 Q 10.5 -135 12.2 -143"
+                  fill="none"
+                  stroke="#fcf6ba"
+                  stroke-width="1"
+                  stroke-dasharray="1.3 1.3"
+                />
+              </g>
+
+              <!-- Gold Jhumka Earring -->
+              <circle cx="11.5" cy="-136" r="1.8" fill="url(#goldOrnament)" />
+              <path d="M 9.2 -131 L 13.8 -131 L 12.6 -134.5 L 10.4 -134.5 Z" fill="url(#goldOrnament)" />
+            </g>
+          </g>
+
+          <!-- =============================================================== -->
+          <!-- LAYER 5: TWO SEPARATE VARMALA GARLANDS HELD WITH BOTH HANDS     -->
+          <!-- =============================================================== -->
+          <g class="varmala-arms-lift">
+            <!-- 1. RAJESH BHAIYA'S SEPARATE VARMALA HELD WITH BOTH HANDS (LEFT-CENTER) -->
+            <!-- Rajesh's Far/Left Arm Reaching Forward -->
+            <path
+              d="M 178 228 C 194 214 212 204 231 198"
+              fill="none"
+              stroke="#dfcca3"
+              stroke-width="8.8"
+              stroke-linecap="round"
+            />
+            <path d="M 224 200 L 232 198" fill="none" stroke="#cfa043" stroke-width="1.8" stroke-linecap="round" />
+            <circle cx="233" cy="198" r="4.4" fill="url(#skinTone)" />
+
+            <!-- Rajesh's Marigold & Red Rose Varmala -->
+            <g class="varmala-garland-rajesh">
+              <path
+                d="M 205 215 C 203 255 212 288 223 292 C 234 288 238 247 233 199"
+                fill="none"
+                stroke="#e11d48"
+                stroke-width="8.2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M 205 215 C 203 255 212 288 223 292 C 234 288 238 247 233 199"
+                fill="none"
+                stroke="#fbbf24"
+                stroke-width="5.8"
+                stroke-linecap="round"
+                stroke-dasharray="2 8"
+              />
+              <path
+                d="M 205 215 C 203 255 212 288 223 292 C 234 288 238 247 233 199"
+                fill="none"
+                stroke="#fffbeb"
+                stroke-width="2.8"
+                stroke-linecap="round"
+                stroke-dasharray="1 10"
+              />
+              <circle cx="223" cy="294" r="4.8" fill="#e11d48" stroke="#fcf6ba" stroke-width="1.1" />
+              <circle cx="223" cy="301" r="3" fill="#fbbf24" />
+            </g>
+
+            <!-- Rajesh's Near/Right Arm Holding the Near Side of His Garland -->
+            <path
+              d="M 158 232 C 173 230 189 224 204 215"
+              fill="none"
+              stroke="url(#sherwaniGrad)"
+              stroke-width="9.8"
+              stroke-linecap="round"
+            />
+            <path d="M 197 219 L 205 214" fill="none" stroke="#e5b84b" stroke-width="2" stroke-linecap="round" />
+            <circle cx="206" cy="214" r="4.6" fill="url(#skinTone)" />
+
+            <!-- 2. JYOTI BHABHI'S SEPARATE VARMALA HELD WITH BOTH HANDS (RIGHT-CENTER) -->
+            <!-- Jyoti's Far/Right Arm Reaching Forward -->
+            <path
+              d="M 362 230 C 345 216 327 206 308 200"
+              fill="none"
+              stroke="#dfa07a"
+              stroke-width="6.6"
+              stroke-linecap="round"
+            />
+            <circle cx="314" cy="202" r="3.5" fill="none" stroke="#d91636" stroke-width="1.8" />
+            <circle cx="312" cy="201" r="3.5" fill="none" stroke="#fcf6ba" stroke-width="1.3" />
+            <circle cx="307" cy="200" r="4.1" fill="url(#skinTone)" />
+
+            <!-- Jyoti's Rose, Jasmine & Gold Varmala -->
+            <g class="varmala-garland-jyoti">
+              <path
+                d="M 307 201 C 302 249 307 290 319 294 C 331 290 339 255 335 216"
+                fill="none"
+                stroke="#be123c"
+                stroke-width="8.2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M 307 201 C 302 249 307 290 319 294 C 331 290 339 255 335 216"
+                fill="none"
+                stroke="#fffbeb"
+                stroke-width="5.5"
+                stroke-linecap="round"
+                stroke-dasharray="2 8"
+              />
+              <path
+                d="M 307 201 C 302 249 307 290 319 294 C 331 290 339 255 335 216"
+                fill="none"
+                stroke="#fbbf24"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-dasharray="1 10"
+              />
+              <circle cx="319" cy="296" r="4.8" fill="#be123c" stroke="#fcf6ba" stroke-width="1.1" />
+              <circle cx="319" cy="303" r="3" fill="#fffbeb" />
+            </g>
+
+            <!-- Jyoti's Near/Left Arm Holding the Near Side of Her Garland -->
+            <path
+              d="M 382 234 C 367 232 351 226 336 216"
+              fill="none"
+              stroke="url(#skinTone)"
+              stroke-width="7.2"
+              stroke-linecap="round"
+            />
+            <circle cx="342" cy="220" r="3.9" fill="none" stroke="#d91636" stroke-width="2.1" />
+            <circle cx="340" cy="218" r="3.9" fill="none" stroke="#fcf6ba" stroke-width="1.4" />
+            <circle cx="335" cy="215" r="4.4" fill="url(#skinTone)" />
+          </g>
+
+          <!-- Soft Floating Golden Sparkles Between the Couple -->
+          <g fill="#fcf6ba">
+            <circle cx="270" cy="184" r="2.2" class="sparkle-twinkle-1" />
+            <circle cx="248" cy="204" r="1.8" class="sparkle-twinkle-2" />
+            <circle cx="292" cy="204" r="1.8" class="sparkle-twinkle-3" />
+            <circle cx="270" cy="248" r="2" class="sparkle-twinkle-2" />
+          </g>
+        </svg>
+
+        <!-- Caption Badge Overlay at Bottom of Stage -->
+        <div class="absolute bottom-2.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-red-950/85 border border-amber-400/45 text-amber-200 text-[11px] sm:text-xs font-medium tracking-wide backdrop-blur-sm whitespace-nowrap">
+          💐 Shubh Varmala • Do Dilon Ka Pavitra Bandhan
+        </div>
+      </div>
+
+      <!-- Romantic Caption -->
+      <p class="font-serif-elegant italic text-amber-100/90 text-xs sm:text-base max-w-xl mx-auto mt-3 mb-5 px-2">
+        “Ek dusre ke gale mein varmala daalte hi jo bandhan juda tha, woh har janam yunhi khilta rahe.”
+      </p>
+
+      <!-- Bottom Navigation Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <button
+          type="button"
+          onclick="goToPage(1)"
+          class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white/10 hover:bg-white/20 border border-amber-400/40 text-amber-100 text-xs sm:text-sm font-medium transition"
+        >
+          ← Back
+        </button>
+        <button
+          type="button"
+          onclick="goToPage(3)"
+          class="btn-royal-gold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm inline-flex items-center gap-2"
+        >
+          <span>Next: Future Wishes</span>
+          <span>→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PAGE 3: FUTURE WISHES & BLESSINGS                                     -->
+  <!-- ===================================================================== -->
+  <section
+    id="page3"
+    class="page-section min-h-screen w-full flex-col items-center justify-center px-4 py-8 sm:px-6 relative z-10"
+  >
+    <div class="royal-card w-full max-w-2xl rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden">
+      <!-- Top Tag -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-400/15 border border-amber-400/40 text-amber-200 text-xs uppercase tracking-widest mb-4">
+        <span>🌟</span>
+        <span>Aane Wale Kal Ki Shubhkamnayein</span>
+        <span>🌟</span>
+      </div>
+
+      <h2
+        class="font-script gold-foil-text mb-2"
+        style="font-size: clamp(2.1rem, 6vw, 3.6rem);"
+      >
+        Forever &amp; Always Together
+      </h2>
+      <p class="font-serif-elegant text-amber-200/90 text-base sm:text-xl mb-6">
+        Rajesh Bhaiya &amp; Jyoti Bhabhi ke Sunahre Bhavishya ke Liye Dil Se Duaayein
+      </p>
+
+      <!-- Future Blessings Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 text-left mb-7">
+        <div class="rounded-2xl bg-black/30 border border-amber-400/25 p-4">
+          <div class="text-2xl mb-1.5">💖</div>
+          <h3 class="font-serif-elegant font-bold text-amber-200 text-lg mb-1">
+            Atut Pyaar &amp; Saath
+          </h3>
+          <p class="text-xs sm:text-sm text-amber-100/80 leading-relaxed">
+            Har aane wala saal aap dono ke rishte mein aur gehra vishwas, samajh aur bepanah mohabbat lekar aaye.
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-black/30 border border-amber-400/25 p-4">
+          <div class="text-2xl mb-1.5">🏡</div>
+          <h3 class="font-serif-elegant font-bold text-amber-200 text-lg mb-1">
+            Khushiyon Bhara Aangan
+          </h3>
+          <p class="text-xs sm:text-sm text-amber-100/80 leading-relaxed">
+            Aapka ghar-parivaar hamesha hansi-khushi, sukoon aur utsav ki roshni se jagmagata rahe.
+          </p>
+        </div>
+
+        <div class="rounded-2xl bg-black/30 border border-amber-400/25 p-4">
+          <div class="text-2xl mb-1.5">✨</div>
+          <h3 class="font-serif-elegant font-bold text-amber-200 text-lg mb-1">
+            Uttam Swasthya &amp; Safalta
+          </h3>
+          <p class="text-xs sm:text-sm text-amber-100/80 leading-relaxed">
+            Bhagwan Kedarnath aur Maa Nanda Devi ki kripa se aap dono ke har sapne aur manzil pure hon.
+          </p>
+        </div>
+      </div>
+
+      <!-- Closing Heartfelt Wish -->
+      <div class="rounded-2xl bg-amber-400/10 border border-amber-400/30 px-5 py-4 mb-7">
+        <p class="font-serif-elegant italic text-amber-100 text-sm sm:text-lg leading-relaxed">
+          “Saaton janam yunhi bani rahe aapki jodi, kabhi na aaye khushiyon mein koi kami. Happy Anniversary once again, Bhaiya &amp; Bhabhi!”
+        </p>
+      </div>
+
+      <!-- Navigation Controls -->
+      <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <button
+          type="button"
+          onclick="goToPage(2)"
+          class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white/10 hover:bg-white/20 border border-amber-400/40 text-amber-100 text-xs sm:text-sm font-medium transition"
+        >
+          ← Back to Varmala
+        </button>
+        <button
+          type="button"
+          onclick="goToPage(1)"
+          class="btn-royal-gold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm inline-flex items-center gap-2"
+        >
+          <span>Replay Celebration</span>
+          <span>↻</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- LOCAL REPOSITORY AUDIO ELEMENT (Songs.mp3 in same GitHub folder)      -->
+  <!-- ===================================================================== -->
+  <audio id="anniversarySong" preload="auto" loop>
+    <source src="./Songs.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    /**
+     * =========================================================================
+     * 1. THREE-PAGE NAVIGATION, FROZEN PAGE-2 BAR & LOCAL GITHUB SONG PLAYER
+     * =========================================================================
+     */
+    let currentPage = 1;
+    let isSongPlaying = false;
+    let songSourceIndex = 0;
+
+    // Fallback paths in case file on GitHub is named Songs.mp3, Songs.m4a, or inside Songs/
+    const songCandidatePaths = [
+      './Songs.mp3',
+      'Songs.mp3',
+      './Songs.m4a',
+      './Songs.ogg',
+      './Songs/song.mp3'
+    ];
+
+    const songAudio = document.getElementById('anniversarySong');
+    const page2FrozenBar = document.getElementById('page2FrozenBar');
+    const songIcon = document.getElementById('songIcon');
+    const songLabel = document.getElementById('songLabel');
+    const toastEl = document.getElementById('toastMessage');
+    let toastTimer = null;
+
+    function showToast(msg) {
+      if (!toastEl) return;
+      toastEl.textContent = msg;
+      toastEl.classList.remove('opacity-0', 'translate-y-3');
+      toastEl.classList.add('opacity-100', 'translate-y-0');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toastEl.classList.add('opacity-0', 'translate-y-3');
+        toastEl.classList.remove('opacity-100', 'translate-y-0');
+      }, 2400);
+    }
+
+    // Try next candidate filename automatically if primary Songs.mp3 isn't matched
+    if (songAudio) {
+      songAudio.addEventListener('error', () => {
+        songSourceIndex++;
+        if (songSourceIndex < songCandidatePaths.length) {
+          songAudio.src = songCandidatePaths[songSourceIndex];
+          songAudio.load();
+          if (isSongPlaying) {
+            songAudio.play().catch(() => {});
+          }
+        }
+      });
+    }
+
+    function updateSongButtonUI(playing) {
+      isSongPlaying = playing;
+      if (!songIcon || !songLabel) return;
+      if (playing) {
+        songIcon.textContent = '⏸️';
+        songLabel.textContent = 'Pause Song';
+      } else {
+        songIcon.textContent = '🎵';
+        songLabel.textContent = 'Play Song';
+      }
+    }
+
+    function playAnniversarySong() {
+      if (!songAudio) return;
+      songAudio
+        .play()
+        .then(() => {
+          updateSongButtonUI(true);
+        })
+        .catch(() => {
+          updateSongButtonUI(false);
+        });
+    }
+
+    function toggleAnniversarySong() {
+      if (!songAudio) return;
+      if (isSongPlaying && !songAudio.paused) {
+        songAudio.pause();
+        updateSongButtonUI(false);
+        showToast('⏸️ Song paused');
+      } else {
+        songAudio
+          .play()
+          .then(() => {
+            updateSongButtonUI(true);
+            showToast('🎶 Playing Anniversary Song');
+          })
+          .catch(() => {
+            showToast('⚠️ Add Songs.mp3 in the same GitHub folder');
+          });
+      }
+    }
+
+    function goToPage(pageNumber) {
+      currentPage = pageNumber;
+      const pages = [1, 2, 3];
+
+      pages.forEach((num) => {
+        const el = document.getElementById(`page${num}`);
+        if (!el) return;
+        if (num === pageNumber) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+
+      // Scroll smoothly to top on page switch
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Freeze "Phool Barsayein" & "Song" buttons ONLY on Page 2
+      if (page2FrozenBar) {
+        if (pageNumber === 2) {
+          page2FrozenBar.classList.remove('hidden');
+          page2FrozenBar.classList.add('flex');
+          // Trigger rich automatic flower shower & start song on Page 2
+          triggerMegaFlowerBurst(110, false);
+          playAnniversarySong();
+        } else {
+          page2FrozenBar.classList.add('hidden');
+          page2FrozenBar.classList.remove('flex');
+        }
+      }
+    }
+
+    /**
+     * =========================================================================
+     * 2. REALISTIC FALLING ROSE, MARIGOLD & JASMINE PETALS ENGINE (CANVAS)
+     * =========================================================================
+     */
+    const canvas = document.getElementById('petalCanvas');
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const petalStyles = [
+      { type: 'rose', fill: '#e11d48', highlight: '#fb7185' },
+      { type: 'rose', fill: '#be123c', highlight: '#f43f5e' },
+      { type: 'marigold', fill: '#f59e0b', highlight: '#fde047' },
+      { type: 'marigold', fill: '#ea580c', highlight: '#fdba74' },
+      { type: 'jasmine', fill: '#fffbeb', highlight: '#fef3c7' }
+    ];
+
+    const petals = [];
+    const MAX_AMBIENT_PETALS = 48;
+
+    function createPetal(startFromTop = true, burstMode = false) {
+      const style = petalStyles[Math.floor(Math.random() * petalStyles.length)];
+      const size = burstMode ? 7 + Math.random() * 8 : 6 + Math.random() * 7;
+      return {
+        x: Math.random() * width,
+        y: startFromTop ? -20 - Math.random() * (burstMode ? height * 0.45 : height) : Math.random() * height,
+        size,
+        speedY: burstMode ? 2.1 + Math.random() * 2.6 : 1.1 + Math.random() * 1.5,
+        speedX: (Math.random() - 0.5) * 1.4,
+        swayAngle: Math.random() * Math.PI * 2,
+        swaySpeed: 0.02 + Math.random() * 0.03,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: (Math.random() - 0.5) * 0.06,
+        flip: Math.random() * Math.PI,
+        flipSpeed: 0.03 + Math.random() * 0.04,
+        style,
+        isBurst: burstMode
+      };
+    }
+
+    // Initialize gentle ambient petals on load
+    for (let i = 0; i < MAX_AMBIENT_PETALS; i++) {
+      petals.push(createPetal(false, false));
+    }
+
+    function triggerMegaFlowerBurst(count = 90, showNotification = false) {
+      for (let i = 0; i < count; i++) {
+        petals.push(createPetal(true, true));
+      }
+      if (showNotification) {
+        showToast('🌸 Rajesh Bhaiya & Jyoti Bhabhi par phoolon ki barish!');
+      }
+    }
+
+    function drawPetal(p) {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      ctx.scale(1, Math.max(0.28, Math.abs(Math.cos(p.flip))));
+
+      if (p.style.type === 'rose') {
+        ctx.beginPath();
+        ctx.moveTo(0, -p.size);
+        ctx.bezierCurveTo(p.size, -p.size, p.size * 1.1, p.size * 0.6, 0, p.size);
+        ctx.bezierCurveTo(-p.size * 1.1, p.size * 0.6, -p.size, -p.size, 0, -p.size);
+        ctx.fillStyle = p.style.fill;
+        ctx.fill();
+      } else if (p.style.type === 'marigold') {
+        ctx.beginPath();
+        for (let i = 0; i < 6; i++) {
+          const angle = (i * Math.PI) / 3;
+          const rx = Math.cos(angle) * p.size * 0.85;
+          const ry = Math.sin(angle) * p.size * 0.85;
+          ctx.arc(rx * 0.45, ry * 0.45, p.size * 0.45, 0, Math.PI * 2);
+        }
+        ctx.fillStyle = p.style.fill;
+        ctx.fill();
+      } else {
+        ctx.beginPath();
+        ctx.ellipse(0, 0, p.size * 0.45, p.size * 0.9, 0, 0, Math.PI * 2);
+        ctx.fillStyle = p.style.fill;
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
+
+    function renderPetals() {
+      ctx.clearRect(0, 0, width, height);
+
+      for (let i = petals.length - 1; i >= 0; i--) {
+        const p = petals[i];
+        p.swayAngle += p.swaySpeed;
+        p.x += p.speedX + Math.sin(p.swayAngle) * 0.85;
+        p.y += p.speedY;
+        p.rotation += p.rotationSpeed;
+        p.flip += p.flipSpeed;
+
+        drawPetal(p);
+
+        if (p.y > height + 30) {
+          if (p.isBurst && petals.length > MAX_AMBIENT_PETALS) {
+            petals.splice(i, 1);
+          } else {
+            petals[i] = createPetal(true, false);
+          }
+        }
+      }
+
+      requestAnimationFrame(renderPetals);
+    }
+
+    // Start gentle ambient petals on Page 1
+    window.addEventListener('load', () => {
+      triggerMegaFlowerBurst(45, false);
+      renderPetals();
+    });
+  </script>
+</body>
+</html>
