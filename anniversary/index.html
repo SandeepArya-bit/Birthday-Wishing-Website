@@ -632,13 +632,11 @@
   <!-- ===================================================================== -->
   <!-- LOCAL REPOSITORY AUDIO ELEMENT (Songs.mp3 in same GitHub folder)      -->
   <!-- ===================================================================== -->
-  <audio id="anniversarySong" preload="auto" loop>
-    <source src="./Songs.mp3.mpeg" type="audio/mpeg" />
-    <source src="Songs.mp3" type="audio/mpeg" />
-    <source src="./Songs.mpeg" type="audio/mpeg" />
-    <source src="./Songs.m4a" type="audio/mp4" />
-    <source src="./Songs.ogg" type="audio/ogg" />
-  </audio>
+  <video id="anniversarySong" preload="auto" loop playsinline style="display:none; width:0; height:0;">
+  <source src="./Songs.mp3.mpeg" type="video/mp4" />
+  <source src="./Songs.mp3.mpeg" type="video/mpeg" />
+  <source src="./Songs.mp3.mpeg" type="audio/mpeg" />
+</video>
 
   <script>
     /**
@@ -708,13 +706,46 @@
       updateSongUI(false);
     }
 
-    function toggleSongPlayback() {
-      if (isSongPlaying) {
-        pauseAnniversarySong();
-      } else {
-        playAnniversarySong();
-      }
-    }
+    const songMedia = document.getElementById('anniversarySong');
+let isSongPlaying = false;
+
+async function playAnniversarySong() {
+  if (!songMedia) return false;
+  try {
+    songMedia.src = './Songs.mp3.mpeg';
+    songMedia.load();
+    await songMedia.play();
+    isSongPlaying = true;
+    updateSongBtn();
+    return true;
+  } catch (err) {
+    isSongPlaying = false;
+    updateSongBtn();
+    return false;
+  }
+}
+
+function pauseAnniversarySong() {
+  if (!songMedia) return;
+  songMedia.pause();
+  isSongPlaying = false;
+  updateSongBtn();
+}
+
+function toggleAnniversarySong() {
+  if (isSongPlaying) {
+    pauseAnniversarySong();
+  } else {
+    playAnniversarySong();
+  }
+}
+
+function updateSongBtn() {
+  const btn = document.getElementById('songToggleBtn');
+  if (btn) {
+    btn.textContent = isSongPlaying ? 'Pause Song ⏸️' : 'Play Song 🎵';
+  }
+}
 
     function goToPage(pageNumber) {
       currentPage = pageNumber;
